@@ -10,7 +10,10 @@ const recipes = (await getCollection('recipes'))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 const published = recipes.filter((recipe) => recipe.data.status === 'published');
 const drafts = recipes.filter((recipe) => recipe.data.status !== 'published');
-const withBase = (path) => `${import.meta.env.BASE_URL}${path}`.replace('/cookbookrecipes/', '/cookbook/recipes/');
+const withBase = (path) => {
+  const base = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path}`;
+};
 const categories = ['breakfast', 'main', 'side', 'dessert'];
 const grouped = Object.fromEntries(
   categories.map((category) => [
