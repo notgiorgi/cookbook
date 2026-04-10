@@ -55,7 +55,6 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
           Random recipe
         </button>
         <span class="meta stat-pill">{published.length} published</span>
-        <a class="button button-ghost" href={draftsUrl}>Drafts</a>
       </div>
     </div>
   </section>
@@ -96,6 +95,10 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
       ))}
     </div>
   </section>
+
+  <p class="meta" style="margin-top: 2rem;">
+    Looking for rougher notes? <a class="text-link" href={draftsUrl}>Browse drafts</a>.
+  </p>
 
   <script>
     const input = document.querySelector('#recipe-search');
