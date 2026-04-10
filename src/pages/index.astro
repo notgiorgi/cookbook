@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { execSync } from 'node:child_process';
 
 const withBase = (path) => {
   const base = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
@@ -15,21 +14,9 @@ const formatCreatedDate = (value) =>
     day: 'numeric',
   }).format(new Date(value));
 
-const getCreatedAt = (filePath) => {
-  try {
-    return execSync(`git log --diff-filter=A --follow --format=%aI -- "${filePath}" | tail -1`, {
-      encoding: 'utf8',
-      shell: '/bin/bash',
-    }).trim();
-  } catch {
-    return '';
-  }
-};
-
 const recipes = (await getCollection('recipes'))
   .map((recipe) => {
-    const relativePath = recipe.filePath ? `src/content/recipes/${recipe.filePath.split('/').at(-1)}` : '';
-    const createdAt = relativePath ? getCreatedAt(relativePath) : '';
+    const createdAt = recipe.data.created_at ? new Date(recipe.data.created_at).toISOString() : '';
 
     return {
       ...recipe,

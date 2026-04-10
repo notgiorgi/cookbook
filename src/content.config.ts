@@ -6,6 +6,7 @@ const recipes = defineCollection({
   schema: z.object({
     title: z.string(),
     status: z.enum(['draft', 'published']).default('draft'),
+    created_at: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     source_repo: z.string().optional(),
     source_file: z.string().optional(),
