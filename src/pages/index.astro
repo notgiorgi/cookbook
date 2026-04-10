@@ -1,51 +1,89 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { execSync } from 'node:child_process';
 
-const recipes = (await getCollection('recipes'))
-  .map((recipe) => ({
-    ...recipe,
-    slug: recipe.id,
-  }))
-  .sort((a, b) => a.data.title.localeCompare(b.data.title));
-const published = recipes.filter((recipe) => recipe.data.status === 'published');
-const drafts = recipes.filter((recipe) => recipe.data.status !== 'published');
 const withBase = (path) => {
   const base = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
   return `${base}${path}`;
 };
-const tags = Array.from(new Set(published.flatMap((recipe) => recipe.data.tags))).sort((a, b) => a.localeCompare(b));
+
+const formatCreatedDate = (value) =>
+  new Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }).format(new Date(value));
+
+const getCreatedAt = (filePath) => {
+  try {
+    return execSync(`git log --diff-filter=A --follow --format=%aI -- "${filePath}" | tail -1`, {
+      encoding: 'utf8',
+      shell: '/bin/bash',
+    }).trim();
+  } catch {
+    return '';
+  }
+};
+
+const recipes = (await getCollection('recipes'))
+  .map((recipe) => {
+    const relativePath = recipe.filePath ? `src/content/recipes/${recipe.filePath.split('/').at(-1)}` : '';
+    const createdAt = relativePath ? getCreatedAt(relativePath) : '';
+
+    return {
+      ...recipe,
+      slug: recipe.id,
+      createdAt,
+      createdLabel: createdAt ? formatCreatedDate(createdAt) : 'Recently added',
+    };
+  })
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const published = recipes.filter((recipe) => recipe.data.status === 'published');
 const draftsUrl = withBase('drafts/');
+const activeTag = Astro.url.searchParams.get('tag')?.trim().toLowerCase() ?? '';
+const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
 ---
 <BaseLayout title="Cookbook">
-  <section class="card" style="margin-bottom: 1rem;">
-    <p class="meta">A tidy little recipe archive.</p>
-    <p>{published.length} published recipes.</p>
-    {tags.length > 0 && (
-      <div class="tags" style="margin-top: 1rem;">
-        {tags.map((tag) => (
-          <button class="tag tag-button" type="button" data-tag-filter={tag}>
-            {tag}
-          </button>
-        ))}
+  <section class="hero-panel">
+    <div>
+      <p class="eyebrow">Personal recipe archive</p>
+      <h2 class="hero-title">Simple, cozy, and easier to browse.</h2>
+      <p class="hero-copy">
+        Search by name, ingredient, or tag, then jump into something worth cooking.
+      </p>
+    </div>
+
+    <div class="hero-controls">
+      <input
+        id="recipe-search"
+        class="search-input"
+        type="search"
+        placeholder="Search recipes, tags, ingredients..."
+        aria-label="Search recipes"
+        value={activeQuery}
+      />
+      <div class="hero-actions">
+        <button id="random-recipe" class="button button-primary" type="button">
+          Random recipe
+        </button>
+        <span class="meta stat-pill">{published.length} published</span>
+        <a class="meta text-link" href={draftsUrl}>Browse drafts</a>
       </div>
-    )}
-    <input
-      id="recipe-search"
-      class="search-input"
-      type="search"
-      placeholder="Search recipes, tags, ingredients..."
-      aria-label="Search recipes"
-      style="margin-top: 1rem;"
-    />
-    <button id="random-recipe" class="button" type="button" style="margin-top: 0.75rem;">
-      Random recipe
-    </button>
+    </div>
   </section>
 
   <section style="margin-bottom: 2rem;" data-category-section="all">
-    <h2>All recipes</h2>
-    <div class="grid">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Collection</p>
+        <h2>All recipes</h2>
+      </div>
+      {activeTag && <p class="meta">Filtered by tag: <strong>{activeTag}</strong></p>}
+    </div>
+
+    <div class="grid recipe-grid">
       {published.map((recipe) => (
         <article
           class="card recipe-card"
@@ -53,22 +91,26 @@ const draftsUrl = withBase('drafts/');
           data-title={recipe.data.title.toLowerCase()}
           data-tags={recipe.data.tags.join(' ').toLowerCase()}
         >
-          <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
-          <div class="tags">
-            {recipe.data.tags.map((tag) => (
-              <button class="tag tag-button" type="button" data-tag-filter={tag}>
-                {tag}
-              </button>
-            ))}
+          <div class="recipe-card-top">
+            <p class="meta recipe-date">Added {recipe.createdLabel}</p>
+            {recipe.data.tags.length > 0 && (
+              <div class="tags recipe-tags">
+                {recipe.data.tags.map((tag) => (
+                  <button class="tag tag-button" type="button" data-tag-filter={tag}>
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
+
+          <h3 class="recipe-title">
+            <a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
+          </h3>
         </article>
       ))}
     </div>
   </section>
-
-  <p class="meta" style="margin-top: 2rem;">
-    Looking for rougher notes? <a href={draftsUrl}>Browse drafts</a>.
-  </p>
 
   <script>
     const input = document.querySelector('#recipe-search');
@@ -76,7 +118,7 @@ const draftsUrl = withBase('drafts/');
     const cards = Array.from(document.querySelectorAll('[data-searchable]'));
     const sections = Array.from(document.querySelectorAll('[data-category-section]'));
     const tagButtons = Array.from(document.querySelectorAll('[data-tag-filter]'));
-    const publishedRecipeLinks = Array.from(document.querySelectorAll('[data-category-section]:not([data-category-section="drafts"]) .recipe-card h3 a'));
+    const publishedRecipeLinks = Array.from(document.querySelectorAll('.recipe-card .recipe-title a'));
 
     const getState = () => {
       const params = new URLSearchParams(window.location.search);
