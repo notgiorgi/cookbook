@@ -33,12 +33,11 @@ const activeTag = Astro.url.searchParams.get('tag')?.trim().toLowerCase() ?? '';
 const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
 ---
 <BaseLayout title="Cookbook">
-  <section class="hero-panel">
-    <div>
-      <p class="eyebrow">Personal recipe archive</p>
-      <h2 class="hero-title">Simple, cozy, and easier to browse.</h2>
+  <section class="hero-panel hero-panel-compact">
+    <div class="hero-copy-block">
+      <h2 class="hero-title">Find something good to cook.</h2>
       <p class="hero-copy">
-        Search by name, ingredient, or tag, then jump into something worth cooking.
+        Search by name, ingredient, or tag.
       </p>
     </div>
 
@@ -56,7 +55,7 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
           Random recipe
         </button>
         <span class="meta stat-pill">{published.length} published</span>
-        <a class="meta text-link" href={draftsUrl}>Browse drafts</a>
+        <a class="button button-ghost" href={draftsUrl}>Drafts</a>
       </div>
     </div>
   </section>
@@ -64,7 +63,6 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
   <section style="margin-bottom: 2rem;" data-category-section="all">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">Collection</p>
         <h2>All recipes</h2>
       </div>
       {activeTag && <p class="meta">Filtered by tag: <strong>{activeTag}</strong></p>}
