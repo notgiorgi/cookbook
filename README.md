@@ -7,6 +7,7 @@ Organized recipe collection, ready to grow into an Astro content repo.
 - `src/content/recipes/` contains one markdown file per recipe
 - `src/content/config.ts` defines an Astro content collection schema
 - `recipes.json` is a simple machine-readable manifest
+- external recipe imports can carry `source_url` in frontmatter
 
 ## Recipes
 

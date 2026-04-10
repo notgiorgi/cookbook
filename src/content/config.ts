@@ -9,6 +9,7 @@ const recipes = defineCollection({
     tags: z.array(z.string()).default([]),
     source_repo: z.string().optional(),
     source_file: z.string().optional(),
+    source_url: z.string().url().optional(),
   }),
 });
 

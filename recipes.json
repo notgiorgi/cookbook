@@ -10,6 +10,7 @@
       "appetizer"
     ],
     "source_file": "baked_chicken_wings.md",
+    "source_url": "",
     "path": "src/content/recipes/baked-chicken-wings.md"
   },
   {
@@ -23,6 +24,7 @@
       "casserole"
     ],
     "source_file": "baked_ziti.md",
+    "source_url": "",
     "path": "src/content/recipes/baked-ziti.md"
   },
   {
@@ -34,6 +36,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/basic-marinade-for-every-meat.md"
   },
   {
@@ -45,6 +48,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/basic-vinaigrette.md"
   },
   {
@@ -56,6 +60,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/bbq-rub.md"
   },
   {
@@ -69,6 +74,7 @@
       "blueberry"
     ],
     "source_file": "Baked oats.md",
+    "source_url": "",
     "path": "src/content/recipes/blueberry-cream-cheese-baked-oats.md"
   },
   {
@@ -80,6 +86,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/brownies-5m.md"
   },
   {
@@ -93,6 +100,7 @@
       "chia"
     ],
     "source_file": "chia.md",
+    "source_url": "",
     "path": "src/content/recipes/chia-pudding.md"
   },
   {
@@ -105,18 +113,8 @@
       "curry"
     ],
     "source_file": "Tikka Masala.md",
+    "source_url": "",
     "path": "src/content/recipes/chicken-tikka-masala.md"
-  },
-  {
-    "title": "Chimichurri",
-    "slug": "chimichurri",
-    "status": "draft",
-    "tags": [
-      "imported",
-      "notes"
-    ],
-    "source_file": "recipe-collection.md",
-    "path": "src/content/recipes/chimichurri.md"
   },
   {
     "title": "Chimichurri 2",
@@ -127,7 +125,20 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/chimichurri-2.md"
+  },
+  {
+    "title": "Chimichurri",
+    "slug": "chimichurri",
+    "status": "draft",
+    "tags": [
+      "imported",
+      "notes"
+    ],
+    "source_file": "recipe-collection.md",
+    "source_url": "",
+    "path": "src/content/recipes/chimichurri.md"
   },
   {
     "title": "Chocolate Macarons",
@@ -140,7 +151,22 @@
       "chocolate"
     ],
     "source_file": "Chocolate Macarons.md",
+    "source_url": "",
     "path": "src/content/recipes/chocolate-macarons.md"
+  },
+  {
+    "title": "Classic Shrimp Lo Mein",
+    "slug": "classic-shrimp-lo-mein",
+    "status": "published",
+    "tags": [
+      "noodles",
+      "shrimp",
+      "lo-mein",
+      "stir-fry"
+    ],
+    "source_file": "linkts.txt",
+    "source_url": "https://www.cookwell.com/recipe/classic-shrimp-lo-mein",
+    "path": "src/content/recipes/classic-shrimp-lo-mein.md"
   },
   {
     "title": "Dal",
@@ -151,6 +177,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/dal.md"
   },
   {
@@ -162,6 +189,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/flamkuchen-2.md"
   },
   {
@@ -175,7 +203,22 @@
       "focaccia"
     ],
     "source_file": "Focaccia.md",
+    "source_url": "",
     "path": "src/content/recipes/focaccia.md"
+  },
+  {
+    "title": "Higher Protein Chicken Lo Mein",
+    "slug": "higher-protein-chicken-lo-mein",
+    "status": "published",
+    "tags": [
+      "noodles",
+      "chicken",
+      "lo-mein",
+      "stir-fry"
+    ],
+    "source_file": "linkts.txt",
+    "source_url": "https://www.cookwell.com/recipe/higher-protein-chicken-lo-mein",
+    "path": "src/content/recipes/higher-protein-chicken-lo-mein.md"
   },
   {
     "title": "Kung Pao Chicken",
@@ -188,6 +231,7 @@
       "spicy"
     ],
     "source_file": "Kung Pao.md",
+    "source_url": "",
     "path": "src/content/recipes/kung-pao-chicken.md"
   },
   {
@@ -199,6 +243,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/lo-mein-noodles.md"
   },
   {
@@ -211,6 +256,7 @@
       "freeform"
     ],
     "source_file": "meatballs.md",
+    "source_url": "",
     "path": "src/content/recipes/meatballs.md"
   },
   {
@@ -222,6 +268,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/no-knead-bread.md"
   },
   {
@@ -234,6 +281,7 @@
       "asian-inspired"
     ],
     "source_file": "Noodles.md",
+    "source_url": "",
     "path": "src/content/recipes/peanut-soy-noodles.md"
   },
   {
@@ -245,6 +293,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/pico-de-gallo.md"
   },
   {
@@ -258,6 +307,7 @@
       "draft"
     ],
     "source_file": "Pulled pork.md",
+    "source_url": "",
     "path": "src/content/recipes/pulled-pork.md"
   },
   {
@@ -269,6 +319,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/red-salsa.md"
   },
   {
@@ -280,7 +331,23 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/reverse-seared-steak.md"
+  },
+  {
+    "title": "Spicy Beef Lo Mein",
+    "slug": "spicy-beef-lo-mein",
+    "status": "published",
+    "tags": [
+      "noodles",
+      "beef",
+      "lo-mein",
+      "spicy",
+      "stir-fry"
+    ],
+    "source_file": "linkts.txt",
+    "source_url": "https://www.cookwell.com/recipe/spicy-beef-lo-mein",
+    "path": "src/content/recipes/spicy-beef-lo-mein.md"
   },
   {
     "title": "TERIYAKI SAUCE",
@@ -291,6 +358,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/teriyaki-sauce.md"
   },
   {
@@ -302,6 +370,7 @@
       "notes"
     ],
     "source_file": "recipe-collection.md",
+    "source_url": "",
     "path": "src/content/recipes/tortillas.md"
   }
 ]
