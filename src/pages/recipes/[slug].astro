@@ -12,10 +12,11 @@ export async function getStaticPaths() {
 
 const { recipe } = Astro.props;
 const { Content } = await render(recipe);
+const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
 ---
 <BaseLayout title={recipe.data.title}>
   <article class="card">
-    <p><a href={`${import.meta.env.BASE_URL}`}>← Back to all recipes</a></p>
+    <p><a href={homeUrl}>← Back to all recipes</a></p>
     <h1>{recipe.data.title}</h1>
     <p class="meta">Status: {recipe.data.status}</p>
     {recipe.data.tags.length > 0 && (
