@@ -1,6 +1,6 @@
 ---
 title: "Meatballs"
-status: draft
+status: published
 tags:
   - main
   - meat

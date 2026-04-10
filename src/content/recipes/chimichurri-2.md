@@ -1,6 +1,6 @@
 ---
 title: "Chimichurri 2"
-status: draft
+status: published
 tags:
   - side
   - imported

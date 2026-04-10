@@ -1,6 +1,6 @@
 ---
 title: "TERIYAKI SAUCE"
-status: draft
+status: published
 tags:
   - side
   - imported

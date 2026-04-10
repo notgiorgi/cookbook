@@ -1,6 +1,6 @@
 ---
 title: "Flamkuchen 2 პორცია"
-status: draft
+status: published
 tags:
   - main
   - imported

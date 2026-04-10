@@ -18,11 +18,12 @@ const grouped = Object.fromEntries(
     published.filter((recipe) => recipe.data.tags.includes(category)),
   ])
 );
+const draftsUrl = withBase('drafts/');
 ---
 <BaseLayout title="Cookbook">
   <section class="card" style="margin-bottom: 1rem;">
     <p class="meta">A tidy little recipe archive.</p>
-    <p>{published.length} published recipes, {drafts.length} drafts.</p>
+    <p>{published.length} published recipes.</p>
     <input
       id="recipe-search"
       class="search-input"
@@ -54,24 +55,9 @@ const grouped = Object.fromEntries(
     </section>
   ))}
 
-  <section data-category-section="drafts">
-    <h2>Drafts</h2>
-    <div class="grid">
-      {drafts.map((recipe) => (
-        <article
-          class="card recipe-card"
-          data-searchable
-          data-title={recipe.data.title.toLowerCase()}
-          data-tags={recipe.data.tags.join(' ').toLowerCase()}
-        >
-          <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
-          <div class="tags">
-            {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
+  <p class="meta" style="margin-top: 2rem;">
+    Looking for rougher notes? <a href={draftsUrl}>Browse drafts</a>.
+  </p>
 
   <script>
     const input = document.querySelector('#recipe-search');

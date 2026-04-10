@@ -1,6 +1,6 @@
 ---
 title: "Reverse Seared steak"
-status: draft
+status: published
 tags:
   - main
   - imported

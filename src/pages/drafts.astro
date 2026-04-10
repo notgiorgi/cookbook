@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const recipes = (await getCollection('recipes'))
+  .map((recipe) => ({
+    ...recipe,
+    slug: recipe.id,
+  }))
+  .filter((recipe) => recipe.data.status !== 'published')
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const withBase = (path) => `${import.meta.env.BASE_URL}${path}`.replace('/cookbookrecipes/', '/cookbook/recipes/');
+const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
+---
+<BaseLayout title="Cookbook Drafts">
+  <section class="card" style="margin-bottom: 1rem;">
+    <p><a href={homeUrl}>← Back to published recipes</a></p>
+    <h2>Drafts</h2>
+    <p class="meta">Rough notes, placeholders, and recipes that still need cleanup.</p>
+  </section>
+
+  <div class="grid">
+    {recipes.map((recipe) => (
+      <article class="card">
+        <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
+        <div class="tags">
+          {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      </article>
+    ))}
+  </div>
+</BaseLayout>
