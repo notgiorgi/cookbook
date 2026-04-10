@@ -9,8 +9,6 @@ tags:
 source_repo: "recipes"
 source_file: "Tikka Masala.md"
 ---
-# Chicken Tikka Masala
-
 Chicken thigh pieces marinated in yogurt and spices, then simmered in a rich tomato-cream sauce.
 
 ## Ingredients

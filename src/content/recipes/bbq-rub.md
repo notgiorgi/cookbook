@@ -8,8 +8,6 @@ tags:
 source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
-# BBQ Rub
-
 Imported from the loose recipe collection notes.
 
 ## Ingredients

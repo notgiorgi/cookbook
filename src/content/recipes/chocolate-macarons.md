@@ -9,8 +9,6 @@ tags:
 source_repo: "recipes"
 source_file: "Chocolate Macarons.md"
 ---
-# Chocolate Macarons
-
 Large chocolate macarons with a simple ganache filling.
 
 ## Yield

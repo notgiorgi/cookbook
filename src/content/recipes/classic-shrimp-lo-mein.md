@@ -11,8 +11,6 @@ source_repo: "recipes"
 source_file: "linkts.txt"
 source_url: "https://www.cookwell.com/recipe/classic-shrimp-lo-mein"
 ---
-# Classic Shrimp Lo Mein
-
 Takeout-style lo mein with shrimp.
 
 ## Yield

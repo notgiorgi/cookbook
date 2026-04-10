@@ -9,8 +9,6 @@ tags:
 source_repo: "recipes"
 source_file: "meatballs.md"
 ---
-# Meatballs
-
 A rough meatball formula with blended vegetables for moisture and flavor.
 
 ## Ingredients

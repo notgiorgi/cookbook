@@ -10,8 +10,6 @@ tags:
 source_repo: "recipes"
 source_file: "baked_ziti.md"
 ---
-# Baked Ziti
-
 A rich baked pasta with a tomato sauce, ricotta mixture, and mozzarella topping.
 
 ## Ingredients

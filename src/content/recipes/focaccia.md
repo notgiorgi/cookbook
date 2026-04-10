@@ -10,8 +10,6 @@ tags:
 source_repo: "recipes"
 source_file: "Focaccia.md"
 ---
-# Focaccia
-
 Slow-fermented focaccia baked in a 22 x 33 cm pan.
 
 ## Yield

@@ -9,8 +9,6 @@ tags:
 source_repo: "recipes"
 source_file: "Baked oats.md"
 ---
-# Blueberry Cream Cheese Baked Oats
-
 Baked oats with blueberries, cream cheese, and swirls of blueberry preserves.
 
 ## Ingredients

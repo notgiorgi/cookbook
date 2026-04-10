@@ -9,8 +9,6 @@ tags:
 source_repo: "recipes"
 source_file: "Noodles.md"
 ---
-# Peanut Soy Noodles
-
 A quick noodle template with a savory peanut-soy sauce.
 
 ## Yield

@@ -12,8 +12,6 @@ source_repo: "recipes"
 source_file: "linkts.txt"
 source_url: "https://www.cookwell.com/recipe/spicy-beef-lo-mein"
 ---
-# Spicy Beef Lo Mein
-
 A spicy, savory lo mein with marinated beef and chilies.
 
 ## Yield

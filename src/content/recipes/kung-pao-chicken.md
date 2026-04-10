@@ -10,8 +10,6 @@ tags:
 source_repo: "recipes"
 source_file: "Kung Pao.md"
 ---
-# Kung Pao Chicken
-
 Stir-fried chicken with peanuts, aromatics, and a glossy sweet-sour sauce.
 
 ## Ingredients

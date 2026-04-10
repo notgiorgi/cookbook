@@ -9,8 +9,6 @@ tags:
 source_repo: "recipes"
 source_file: "chia.md"
 ---
-# Chia Pudding
-
 Creamy make-ahead chia pudding for four servings.
 
 ## Yield

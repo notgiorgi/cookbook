@@ -10,8 +10,6 @@ tags:
 source_repo: "recipes"
 source_file: "Pulled pork.md"
 ---
-# Pulled Pork
-
 A placeholder recipe note for pulled pork.
 
 ## Ingredients

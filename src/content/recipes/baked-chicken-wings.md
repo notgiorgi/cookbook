@@ -10,8 +10,6 @@ tags:
 source_repo: "recipes"
 source_file: "baked_chicken_wings.md"
 ---
-# Baked Chicken Wings
-
 Crispy oven-baked wings finished with a buttery hot sauce.
 
 ## Ingredients

@@ -11,8 +11,6 @@ source_repo: "recipes"
 source_file: "linkts.txt"
 source_url: "https://www.cookwell.com/recipe/higher-protein-chicken-lo-mein"
 ---
-# Higher Protein Chicken Lo Mein
-
 A lighter lo mein with extra chicken and vegetables.
 
 ## Yield
