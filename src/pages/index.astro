@@ -35,6 +35,9 @@ const draftsUrl = withBase('drafts/');
       aria-label="Search recipes"
       style="margin-top: 1rem;"
     />
+    <button id="random-recipe" class="button" type="button" style="margin-top: 0.75rem;">
+      Random recipe
+    </button>
   </section>
 
   {categories.map((category) => (
@@ -64,8 +67,10 @@ const draftsUrl = withBase('drafts/');
 
   <script>
     const input = document.querySelector('#recipe-search');
+    const randomButton = document.querySelector('#random-recipe');
     const cards = Array.from(document.querySelectorAll('[data-searchable]'));
     const sections = Array.from(document.querySelectorAll('[data-category-section]'));
+    const publishedRecipeLinks = Array.from(document.querySelectorAll('[data-category-section]:not([data-category-section="drafts"]) .recipe-card h3 a'));
 
     if (input) {
       input.addEventListener('input', () => {
@@ -81,6 +86,13 @@ const draftsUrl = withBase('drafts/');
           const visibleCards = section.querySelectorAll('.recipe-card:not([style*="display: none"])');
           section.style.display = visibleCards.length ? '' : 'none';
         });
+      });
+    }
+
+    if (randomButton && publishedRecipeLinks.length) {
+      randomButton.addEventListener('click', () => {
+        const pick = publishedRecipeLinks[Math.floor(Math.random() * publishedRecipeLinks.length)];
+        if (pick?.href) window.location.href = pick.href;
       });
     }
   </script>
