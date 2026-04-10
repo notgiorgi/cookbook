@@ -99,6 +99,22 @@ const { title = 'Cookbook' } = Astro.props;
       }
       h1, h2, h3 { line-height: 1.2; }
       ul, ol { padding-left: 1.2rem; }
+      ul.contains-task-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      ul.contains-task-list li.task-list-item {
+        list-style: none;
+      }
+      ul.contains-task-list li.task-list-item::marker {
+        content: '';
+      }
+      ul.contains-task-list input[type='checkbox'] {
+        width: 1.05rem;
+        height: 1.05rem;
+        margin-right: 0.65rem;
+        vertical-align: -0.12rem;
+      }
 
       @media print {
         body {
