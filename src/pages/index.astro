@@ -23,14 +23,27 @@ const grouped = Object.fromEntries(
   <section class="card" style="margin-bottom: 1rem;">
     <p class="meta">A tidy little recipe archive.</p>
     <p>{published.length} published recipes, {drafts.length} drafts.</p>
+    <input
+      id="recipe-search"
+      class="search-input"
+      type="search"
+      placeholder="Search recipes, tags, ingredients..."
+      aria-label="Search recipes"
+      style="margin-top: 1rem;"
+    />
   </section>
 
   {categories.map((category) => (
-    <section style="margin-bottom: 2rem;">
+    <section style="margin-bottom: 2rem;" data-category-section={category}>
       <h2 style="text-transform: capitalize;">{category}</h2>
       <div class="grid">
         {grouped[category].map((recipe) => (
-          <article class="card">
+          <article
+            class="card recipe-card"
+            data-searchable
+            data-title={recipe.data.title.toLowerCase()}
+            data-tags={recipe.data.tags.join(' ').toLowerCase()}
+          >
             <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
             <div class="tags">
               {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
@@ -41,11 +54,16 @@ const grouped = Object.fromEntries(
     </section>
   ))}
 
-  <section>
+  <section data-category-section="drafts">
     <h2>Drafts</h2>
     <div class="grid">
       {drafts.map((recipe) => (
-        <article class="card">
+        <article
+          class="card recipe-card"
+          data-searchable
+          data-title={recipe.data.title.toLowerCase()}
+          data-tags={recipe.data.tags.join(' ').toLowerCase()}
+        >
           <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
           <div class="tags">
             {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
@@ -54,4 +72,27 @@ const grouped = Object.fromEntries(
       ))}
     </div>
   </section>
+
+  <script>
+    const input = document.querySelector('#recipe-search');
+    const cards = Array.from(document.querySelectorAll('[data-searchable]'));
+    const sections = Array.from(document.querySelectorAll('[data-category-section]'));
+
+    if (input) {
+      input.addEventListener('input', () => {
+        const query = input.value.trim().toLowerCase();
+
+        cards.forEach((card) => {
+          const haystack = `${card.dataset.title || ''} ${card.dataset.tags || ''}`;
+          const match = !query || haystack.includes(query);
+          card.style.display = match ? '' : 'none';
+        });
+
+        sections.forEach((section) => {
+          const visibleCards = section.querySelectorAll('.recipe-card:not([style*="display: none"])');
+          section.style.display = visibleCards.length ? '' : 'none';
+        });
+      });
+    }
+  </script>
 </BaseLayout>

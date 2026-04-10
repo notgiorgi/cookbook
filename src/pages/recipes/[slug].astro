@@ -16,18 +16,22 @@ const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env
 ---
 <BaseLayout title={recipe.data.title}>
   <article class="card">
-    <p><a href={homeUrl}>← Back to all recipes</a></p>
+    <div class="no-print">
+      <p><a href={homeUrl}>← Back to all recipes</a></p>
+      <p class="meta">Status: {recipe.data.status}</p>
+      {recipe.data.tags.length > 0 && (
+        <div class="tags">
+          {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+      <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #eadfd3;" />
+    </div>
+
     <h1>{recipe.data.title}</h1>
-    <p class="meta">Status: {recipe.data.status}</p>
-    {recipe.data.tags.length > 0 && (
-      <div class="tags">
-        {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-      </div>
-    )}
-    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #eadfd3;" />
     <Content />
+
     {recipe.data.source_url && (
-      <p class="meta" style="margin-top: 2rem;">Source: <a href={recipe.data.source_url}>{recipe.data.source_url}</a></p>
+      <p class="meta no-print" style="margin-top: 2rem;">Source: <a href={recipe.data.source_url}>{recipe.data.source_url}</a></p>
     )}
   </article>
 </BaseLayout>

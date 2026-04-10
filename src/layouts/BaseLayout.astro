@@ -49,22 +49,67 @@ const { title = 'Cookbook' } = Astro.props;
       .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 0.75rem;
+        gap: 0.55rem;
+        margin-top: 0.9rem;
       }
       .tag {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
         font-size: 0.85rem;
-        padding: 0.2rem 0.55rem;
+        line-height: 1;
+        padding: 0.38rem 0.72rem;
         border-radius: 999px;
         background: #f3e7dd;
         color: #6f3d24;
+        border: 1px solid #ead4c4;
       }
       .meta {
         color: var(--muted);
         font-size: 0.95rem;
       }
+      .search-input {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+      }
+      .search-input:focus {
+        outline: 2px solid #d8b49b;
+        outline-offset: 2px;
+      }
       h1, h2, h3 { line-height: 1.2; }
       ul, ol { padding-left: 1.2rem; }
+
+      @media print {
+        body {
+          background: white;
+          color: black;
+        }
+        .wrap {
+          max-width: none;
+          padding: 0;
+        }
+        header,
+        .no-print,
+        .no-print * {
+          display: none !important;
+        }
+        .card {
+          background: transparent;
+          border: 0;
+          border-radius: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
     </style>
   </head>
   <body>
