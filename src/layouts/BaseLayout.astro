@@ -64,6 +64,15 @@ const { title = 'Cookbook' } = Astro.props;
         color: #6f3d24;
         border: 1px solid #ead4c4;
       }
+      .tag-button {
+        cursor: pointer;
+        font: inherit;
+      }
+      .tag-button.active {
+        background: #8d4e2f;
+        color: #fff7f0;
+        border-color: #8d4e2f;
+      }
       .meta {
         color: var(--muted);
         font-size: 0.95rem;

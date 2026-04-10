@@ -14,19 +14,22 @@ const withBase = (path) => {
   const base = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
   return `${base}${path}`;
 };
-const categories = ['breakfast', 'main', 'side', 'dessert'];
-const grouped = Object.fromEntries(
-  categories.map((category) => [
-    category,
-    published.filter((recipe) => recipe.data.tags.includes(category)),
-  ])
-);
+const tags = Array.from(new Set(published.flatMap((recipe) => recipe.data.tags))).sort((a, b) => a.localeCompare(b));
 const draftsUrl = withBase('drafts/');
 ---
 <BaseLayout title="Cookbook">
   <section class="card" style="margin-bottom: 1rem;">
     <p class="meta">A tidy little recipe archive.</p>
     <p>{published.length} published recipes.</p>
+    {tags.length > 0 && (
+      <div class="tags" style="margin-top: 1rem;">
+        {tags.map((tag) => (
+          <button class="tag tag-button" type="button" data-tag-filter={tag}>
+            {tag}
+          </button>
+        ))}
+      </div>
+    )}
     <input
       id="recipe-search"
       class="search-input"
@@ -40,26 +43,28 @@ const draftsUrl = withBase('drafts/');
     </button>
   </section>
 
-  {categories.map((category) => (
-    <section style="margin-bottom: 2rem;" data-category-section={category}>
-      <h2 style="text-transform: capitalize;">{category}</h2>
-      <div class="grid">
-        {grouped[category].map((recipe) => (
-          <article
-            class="card recipe-card"
-            data-searchable
-            data-title={recipe.data.title.toLowerCase()}
-            data-tags={recipe.data.tags.join(' ').toLowerCase()}
-          >
-            <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
-            <div class="tags">
-              {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  ))}
+  <section style="margin-bottom: 2rem;" data-category-section="all">
+    <h2>All recipes</h2>
+    <div class="grid">
+      {published.map((recipe) => (
+        <article
+          class="card recipe-card"
+          data-searchable
+          data-title={recipe.data.title.toLowerCase()}
+          data-tags={recipe.data.tags.join(' ').toLowerCase()}
+        >
+          <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
+          <div class="tags">
+            {recipe.data.tags.map((tag) => (
+              <button class="tag tag-button" type="button" data-tag-filter={tag}>
+                {tag}
+              </button>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 
   <p class="meta" style="margin-top: 2rem;">
     Looking for rougher notes? <a href={draftsUrl}>Browse drafts</a>.
@@ -70,28 +75,81 @@ const draftsUrl = withBase('drafts/');
     const randomButton = document.querySelector('#random-recipe');
     const cards = Array.from(document.querySelectorAll('[data-searchable]'));
     const sections = Array.from(document.querySelectorAll('[data-category-section]'));
+    const tagButtons = Array.from(document.querySelectorAll('[data-tag-filter]'));
     const publishedRecipeLinks = Array.from(document.querySelectorAll('[data-category-section]:not([data-category-section="drafts"]) .recipe-card h3 a'));
+
+    const getState = () => {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        query: (params.get('q') || '').trim().toLowerCase(),
+        tag: (params.get('tag') || '').trim().toLowerCase(),
+      };
+    };
+
+    const setParams = ({ query, tag }) => {
+      const params = new URLSearchParams(window.location.search);
+
+      if (query) params.set('q', query);
+      else params.delete('q');
+
+      if (tag) params.set('tag', tag);
+      else params.delete('tag');
+
+      const search = params.toString();
+      const nextUrl = `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`;
+      window.history.replaceState({}, '', nextUrl);
+    };
+
+    const applyFilters = () => {
+      const { query, tag } = getState();
+
+      if (input && input.value !== query) input.value = query;
+
+      cards.forEach((card) => {
+        const title = card.dataset.title || '';
+        const tags = card.dataset.tags || '';
+        const haystack = `${title} ${tags}`;
+        const matchesQuery = !query || haystack.includes(query);
+        const matchesTag = !tag || tags.split(/\s+/).includes(tag);
+        card.style.display = matchesQuery && matchesTag ? '' : 'none';
+      });
+
+      sections.forEach((section) => {
+        const visibleCards = section.querySelectorAll('.recipe-card:not([style*="display: none"])');
+        section.style.display = visibleCards.length ? '' : 'none';
+      });
+
+      tagButtons.forEach((button) => {
+        const isActive = (button.dataset.tagFilter || '').toLowerCase() === tag;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    };
 
     if (input) {
       input.addEventListener('input', () => {
-        const query = input.value.trim().toLowerCase();
-
-        cards.forEach((card) => {
-          const haystack = `${card.dataset.title || ''} ${card.dataset.tags || ''}`;
-          const match = !query || haystack.includes(query);
-          card.style.display = match ? '' : 'none';
-        });
-
-        sections.forEach((section) => {
-          const visibleCards = section.querySelectorAll('.recipe-card:not([style*="display: none"])');
-          section.style.display = visibleCards.length ? '' : 'none';
-        });
+        setParams({ query: input.value.trim().toLowerCase(), tag: getState().tag });
+        applyFilters();
       });
     }
 
+    tagButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selectedTag = (button.dataset.tagFilter || '').trim().toLowerCase();
+        const currentTag = getState().tag;
+        setParams({ query: getState().query, tag: currentTag === selectedTag ? '' : selectedTag });
+        applyFilters();
+      });
+    });
+
+    window.addEventListener('popstate', applyFilters);
+    applyFilters();
+
     if (randomButton && publishedRecipeLinks.length) {
       randomButton.addEventListener('click', () => {
-        const pick = publishedRecipeLinks[Math.floor(Math.random() * publishedRecipeLinks.length)];
+        const visibleRecipeLinks = publishedRecipeLinks.filter((link) => link.closest('.recipe-card')?.style.display !== 'none');
+        const pool = visibleRecipeLinks.length ? visibleRecipeLinks : publishedRecipeLinks;
+        const pick = pool[Math.floor(Math.random() * pool.length)];
         if (pick?.href) window.location.href = pick.href;
       });
     }
