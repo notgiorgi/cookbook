@@ -11,6 +11,13 @@ const recipes = (await getCollection('recipes'))
 const published = recipes.filter((recipe) => recipe.data.status === 'published');
 const drafts = recipes.filter((recipe) => recipe.data.status !== 'published');
 const withBase = (path) => `${import.meta.env.BASE_URL}${path}`.replace('/cookbookrecipes/', '/cookbook/recipes/');
+const categories = ['breakfast', 'main', 'side', 'dessert'];
+const grouped = Object.fromEntries(
+  categories.map((category) => [
+    category,
+    published.filter((recipe) => recipe.data.tags.includes(category)),
+  ])
+);
 ---
 <BaseLayout title="Cookbook">
   <section class="card" style="margin-bottom: 1rem;">
@@ -18,19 +25,21 @@ const withBase = (path) => `${import.meta.env.BASE_URL}${path}`.replace('/cookbo
     <p>{published.length} published recipes, {drafts.length} drafts.</p>
   </section>
 
-  <section style="margin-bottom: 2rem;">
-    <h2>Published</h2>
-    <div class="grid">
-      {published.map((recipe) => (
-        <article class="card">
-          <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
-          <div class="tags">
-            {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
+  {categories.map((category) => (
+    <section style="margin-bottom: 2rem;">
+      <h2 style="text-transform: capitalize;">{category}</h2>
+      <div class="grid">
+        {grouped[category].map((recipe) => (
+          <article class="card">
+            <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
+            <div class="tags">
+              {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
 
   <section>
     <h2>Drafts</h2>

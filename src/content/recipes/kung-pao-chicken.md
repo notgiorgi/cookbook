@@ -2,6 +2,7 @@
 title: "Kung Pao Chicken"
 status: published
 tags:
+  - main
   - chicken
   - stir-fry
   - chinese

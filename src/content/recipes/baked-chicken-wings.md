@@ -2,6 +2,7 @@
 title: "Baked Chicken Wings"
 status: published
 tags:
+  - main
   - chicken
   - wings
   - baked

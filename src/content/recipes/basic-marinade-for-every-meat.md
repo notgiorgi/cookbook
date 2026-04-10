@@ -2,6 +2,7 @@
 title: "Basic marinade for every meat"
 status: draft
 tags:
+  - main
   - imported
   - notes
 source_repo: "recipes"

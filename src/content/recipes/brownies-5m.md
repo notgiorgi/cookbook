@@ -2,6 +2,7 @@
 title: "Brownies 5m"
 status: draft
 tags:
+  - dessert
   - imported
   - notes
 source_repo: "recipes"

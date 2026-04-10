@@ -2,6 +2,7 @@
 title: "Pulled Pork"
 status: draft
 tags:
+  - main
   - pork
   - slow-cooked
   - bbq

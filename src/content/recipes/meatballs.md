@@ -2,6 +2,7 @@
 title: "Meatballs"
 status: draft
 tags:
+  - main
   - meat
   - italian
   - freeform

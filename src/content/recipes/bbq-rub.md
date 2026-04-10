@@ -2,6 +2,7 @@
 title: "BBQ Rub"
 status: draft
 tags:
+  - side
   - imported
   - notes
 source_repo: "recipes"

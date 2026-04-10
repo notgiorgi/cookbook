@@ -2,6 +2,7 @@
 title: "Chimichurri 2"
 status: draft
 tags:
+  - side
   - imported
   - notes
 source_repo: "recipes"

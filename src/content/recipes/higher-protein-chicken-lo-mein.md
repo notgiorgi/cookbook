@@ -2,6 +2,7 @@
 title: "Higher Protein Chicken Lo Mein"
 status: published
 tags:
+  - main
   - noodles
   - chicken
   - lo-mein

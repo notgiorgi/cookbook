@@ -2,6 +2,7 @@
 title: "Focaccia"
 status: published
 tags:
+  - side
   - bread
   - baking
   - italian

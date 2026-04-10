@@ -2,6 +2,7 @@
 title: "Basic Vinaigrette"
 status: draft
 tags:
+  - side
   - imported
   - notes
 source_repo: "recipes"

@@ -2,6 +2,7 @@
 title: "Red Salsa"
 status: draft
 tags:
+  - side
   - imported
   - notes
 source_repo: "recipes"

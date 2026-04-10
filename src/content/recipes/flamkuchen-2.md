@@ -2,6 +2,7 @@
 title: "Flamkuchen 2 პორცია"
 status: draft
 tags:
+  - main
   - imported
   - notes
 source_repo: "recipes"

@@ -2,6 +2,7 @@
 title: "Chicken Tikka Masala"
 status: published
 tags:
+  - main
   - chicken
   - indian
   - curry

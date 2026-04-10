@@ -2,6 +2,7 @@
 title: "Spicy Beef Lo Mein"
 status: published
 tags:
+  - main
   - noodles
   - beef
   - lo-mein

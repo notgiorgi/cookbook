@@ -2,6 +2,7 @@
 title: "Reverse Seared steak"
 status: draft
 tags:
+  - main
   - imported
   - notes
 source_repo: "recipes"

@@ -2,6 +2,7 @@
 title: "Baked Ziti"
 status: published
 tags:
+  - main
   - pasta
   - baked
   - italian

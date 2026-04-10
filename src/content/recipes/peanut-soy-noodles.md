@@ -2,6 +2,7 @@
 title: "Peanut Soy Noodles"
 status: published
 tags:
+  - main
   - noodles
   - quick
   - asian-inspired

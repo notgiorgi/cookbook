@@ -2,6 +2,7 @@
 title: "Classic Shrimp Lo Mein"
 status: published
 tags:
+  - main
   - noodles
   - shrimp
   - lo-mein

@@ -2,6 +2,7 @@
 title: "Lo Mein noodles"
 status: draft
 tags:
+  - main
   - imported
   - notes
 source_repo: "recipes"
