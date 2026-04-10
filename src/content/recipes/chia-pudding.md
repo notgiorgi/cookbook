@@ -1,13 +1,12 @@
 ---
 title: "Chia Pudding"
-slug: "chia-pudding"
 status: published
 tags:
   - breakfast
   - vegan
   - meal-prep
   - chia
-source_repo: recipes
+source_repo: "recipes"
 source_file: "chia.md"
 ---
 # Chia Pudding

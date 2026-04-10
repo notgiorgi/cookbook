@@ -1,10 +1,10 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const recipes = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/recipes' }),
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
     status: z.enum(['draft', 'published']).default('draft'),
     tags: z.array(z.string()).default([]),
     source_repo: z.string().optional(),

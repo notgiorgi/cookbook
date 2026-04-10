@@ -1,13 +1,12 @@
 ---
 title: "Higher Protein Chicken Lo Mein"
-slug: "higher-protein-chicken-lo-mein"
 status: published
 tags:
   - noodles
   - chicken
   - lo-mein
   - stir-fry
-source_repo: recipes
+source_repo: "recipes"
 source_file: "linkts.txt"
 source_url: "https://www.cookwell.com/recipe/higher-protein-chicken-lo-mein"
 ---

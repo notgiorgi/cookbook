@@ -1,11 +1,10 @@
 ---
 title: "Brownies 5m"
-slug: "brownies-5m"
 status: draft
 tags:
   - imported
   - notes
-source_repo: recipes
+source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
 # Brownies 5m

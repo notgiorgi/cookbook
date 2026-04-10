@@ -1,11 +1,10 @@
 ---
 title: "Reverse Seared steak"
-slug: "reverse-seared-steak"
 status: draft
 tags:
   - imported
   - notes
-source_repo: recipes
+source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
 # Reverse Seared steak

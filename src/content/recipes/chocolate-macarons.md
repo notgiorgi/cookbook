@@ -1,13 +1,12 @@
 ---
 title: "Chocolate Macarons"
-slug: "chocolate-macarons"
 status: published
 tags:
   - dessert
   - cookies
   - french
   - chocolate
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Chocolate Macarons.md"
 ---
 # Chocolate Macarons

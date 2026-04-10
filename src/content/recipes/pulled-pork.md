@@ -1,13 +1,12 @@
 ---
 title: "Pulled Pork"
-slug: "pulled-pork"
 status: draft
 tags:
   - pork
   - slow-cooked
   - bbq
   - draft
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Pulled pork.md"
 ---
 # Pulled Pork

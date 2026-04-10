@@ -1,11 +1,10 @@
 ---
 title: "Flamkuchen 2 პორცია"
-slug: "flamkuchen-2"
 status: draft
 tags:
   - imported
   - notes
-source_repo: recipes
+source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
 # Flamkuchen 2 პორცია

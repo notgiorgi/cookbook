@@ -1,11 +1,10 @@
 ---
 title: "Chimichurri 2"
-slug: "chimichurri-2"
 status: draft
 tags:
   - imported
   - notes
-source_repo: recipes
+source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
 # Chimichurri 2

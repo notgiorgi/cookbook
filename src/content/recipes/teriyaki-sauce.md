@@ -1,11 +1,10 @@
 ---
 title: "TERIYAKI SAUCE"
-slug: "teriyaki-sauce"
 status: draft
 tags:
   - imported
   - notes
-source_repo: recipes
+source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
 # TERIYAKI SAUCE

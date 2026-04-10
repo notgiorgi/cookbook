@@ -1,12 +1,11 @@
 ---
 title: "Meatballs"
-slug: "meatballs"
 status: draft
 tags:
   - meat
   - italian
   - freeform
-source_repo: recipes
+source_repo: "recipes"
 source_file: "meatballs.md"
 ---
 # Meatballs

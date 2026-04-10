@@ -1,13 +1,12 @@
 ---
 title: "Baked Chicken Wings"
-slug: "baked-chicken-wings"
 status: published
 tags:
   - chicken
   - wings
   - baked
   - appetizer
-source_repo: recipes
+source_repo: "recipes"
 source_file: "baked_chicken_wings.md"
 ---
 # Baked Chicken Wings

@@ -1,13 +1,12 @@
 ---
 title: "Kung Pao Chicken"
-slug: "kung-pao-chicken"
 status: published
 tags:
   - chicken
   - stir-fry
   - chinese
   - spicy
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Kung Pao.md"
 ---
 # Kung Pao Chicken

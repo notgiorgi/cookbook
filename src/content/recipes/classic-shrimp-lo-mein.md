@@ -1,13 +1,12 @@
 ---
 title: "Classic Shrimp Lo Mein"
-slug: "classic-shrimp-lo-mein"
 status: published
 tags:
   - noodles
   - shrimp
   - lo-mein
   - stir-fry
-source_repo: recipes
+source_repo: "recipes"
 source_file: "linkts.txt"
 source_url: "https://www.cookwell.com/recipe/classic-shrimp-lo-mein"
 ---

@@ -1,12 +1,11 @@
 ---
 title: "Chicken Tikka Masala"
-slug: "chicken-tikka-masala"
 status: published
 tags:
   - chicken
   - indian
   - curry
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Tikka Masala.md"
 ---
 # Chicken Tikka Masala

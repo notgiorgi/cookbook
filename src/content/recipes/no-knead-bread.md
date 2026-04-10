@@ -1,11 +1,10 @@
 ---
 title: "No Knead Bread"
-slug: "no-knead-bread"
 status: draft
 tags:
   - imported
   - notes
-source_repo: recipes
+source_repo: "recipes"
 source_file: "recipe-collection.md"
 ---
 # No Knead Bread

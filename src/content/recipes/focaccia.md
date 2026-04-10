@@ -1,13 +1,12 @@
 ---
 title: "Focaccia"
-slug: "focaccia"
 status: published
 tags:
   - bread
   - baking
   - italian
   - focaccia
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Focaccia.md"
 ---
 # Focaccia

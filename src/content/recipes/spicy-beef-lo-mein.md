@@ -1,6 +1,5 @@
 ---
 title: "Spicy Beef Lo Mein"
-slug: "spicy-beef-lo-mein"
 status: published
 tags:
   - noodles
@@ -8,7 +7,7 @@ tags:
   - lo-mein
   - spicy
   - stir-fry
-source_repo: recipes
+source_repo: "recipes"
 source_file: "linkts.txt"
 source_url: "https://www.cookwell.com/recipe/spicy-beef-lo-mein"
 ---

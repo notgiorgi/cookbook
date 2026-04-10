@@ -1,12 +1,11 @@
 ---
 title: "Peanut Soy Noodles"
-slug: "peanut-soy-noodles"
 status: published
 tags:
   - noodles
   - quick
   - asian-inspired
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Noodles.md"
 ---
 # Peanut Soy Noodles

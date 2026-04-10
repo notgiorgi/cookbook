@@ -1,13 +1,12 @@
 ---
 title: "Baked Ziti"
-slug: "baked-ziti"
 status: published
 tags:
   - pasta
   - baked
   - italian
   - casserole
-source_repo: recipes
+source_repo: "recipes"
 source_file: "baked_ziti.md"
 ---
 # Baked Ziti

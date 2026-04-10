@@ -1,13 +1,12 @@
 ---
 title: "Blueberry Cream Cheese Baked Oats"
-slug: "blueberry-cream-cheese-baked-oats"
 status: published
 tags:
   - breakfast
   - oats
   - baked
   - blueberry
-source_repo: recipes
+source_repo: "recipes"
 source_file: "Baked oats.md"
 ---
 # Blueberry Cream Cheese Baked Oats
