@@ -12,10 +12,10 @@ source_file: "recipe-collection.md"
 
 Imported from the loose recipe collection notes.
 
-## Notes
+## Ingredients
 
-- ½ tsp minced garlic
-- ¼ cup vinegar*
-- 1 tsp honey
-- 1 tsp dijon mustard
-- ½ cup olive oil
+- [ ] ½ tsp minced garlic
+- [ ] ¼ cup vinegar*
+- [ ] 1 tsp honey
+- [ ] 1 tsp dijon mustard
+- [ ] ½ cup olive oil

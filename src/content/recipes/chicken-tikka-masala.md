@@ -16,30 +16,29 @@ Chicken thigh pieces marinated in yogurt and spices, then simmered in a rich tom
 ## Ingredients
 
 ### Marinade
-- 1 cup (240 g) full-fat yogurt
-- 2 teaspoons (6 g) kosher salt
-- 1.25 tablespoons (11 g) garam masala
-- 1 teaspoon (3 g) paprika
-- 5 cloves garlic, finely chopped
-- 2-inch (5 cm) knob ginger, grated
-- 2 pounds (907 g) boneless skinless chicken thighs, cut into 1-inch pieces
+- [ ] 1 cup (240 g) full-fat yogurt
+- [ ] 2 teaspoons (6 g) kosher salt
+- [ ] 1.25 tablespoons (11 g) garam masala
+- [ ] 1 teaspoon (3 g) paprika
+- [ ] 5 cloves garlic, finely chopped
+- [ ] 2-inch (5 cm) knob ginger, grated
+- [ ] 2 pounds (907 g) boneless skinless chicken thighs, cut into 1-inch pieces
 
 ### Sauce
-- 3 tablespoons (24 g) vegetable oil
-- 1 large yellow onion, thinly sliced
-- 2-inch (5 cm) knob ginger, grated or thinly sliced
-- 3 cloves garlic, thinly sliced
-- 1 teaspoon (3 g) paprika
-- 1 teaspoon (3 g) cumin powder
-- 1/2 teaspoon turmeric
-- 1 tablespoon (9 g) garam masala
-- 1 tablespoon (24 g) unsalted butter
-- 2 teaspoons (9 g) sugar
-- 15 ounces (425 g) crushed tomatoes
-- 1 cup (237 ml) heavy cream
-- 1/3 cup fresh cilantro leaves
-- Salt, to taste
-
+- [ ] 3 tablespoons (24 g) vegetable oil
+- [ ] 1 large yellow onion, thinly sliced
+- [ ] 2-inch (5 cm) knob ginger, grated or thinly sliced
+- [ ] 3 cloves garlic, thinly sliced
+- [ ] 1 teaspoon (3 g) paprika
+- [ ] 1 teaspoon (3 g) cumin powder
+- [ ] 1/2 teaspoon turmeric
+- [ ] 1 tablespoon (9 g) garam masala
+- [ ] 1 tablespoon (24 g) unsalted butter
+- [ ] 2 teaspoons (9 g) sugar
+- [ ] 15 ounces (425 g) crushed tomatoes
+- [ ] 1 cup (237 ml) heavy cream
+- [ ] 1/3 cup fresh cilantro leaves
+- [ ] Salt, to taste
 ## Instructions
 1. Mix the yogurt, salt, garam masala, paprika, garlic, and ginger in a bowl.
 2. Add the chicken and toss well. Marinate for 10 minutes or overnight in the refrigerator.

@@ -12,13 +12,13 @@ source_file: "recipe-collection.md"
 
 Imported from the loose recipe collection notes.
 
-## Notes
+## Ingredients
 
-- Large handful of fresh parsley
-- 2 cloves garlic
-- 75 g olive oil
-- 20 g red wine vinegar
-- Sprinkle dried oregano
-- Sprinkle red pepper flakes
-- Salt to taste
-- 10 cranks of black pepper
+- [ ] Large handful of fresh parsley
+- [ ] 2 cloves garlic
+- [ ] 75 g olive oil
+- [ ] 20 g red wine vinegar
+- [ ] Sprinkle dried oregano
+- [ ] Sprinkle red pepper flakes
+- [ ] Salt to taste
+- [ ] 10 cranks of black pepper

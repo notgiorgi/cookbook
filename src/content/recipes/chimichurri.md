@@ -12,11 +12,11 @@ source_file: "recipe-collection.md"
 
 Imported from the loose recipe collection notes.
 
-## Notes
+## Ingredients
 
-- 100g Olive Oil
-- 30g White Wine Vinegar
-- 2g Red Pepper Flakes
-- 2g Oregano
-- 2 Cloves of minced garlic
-- Parsley
+- [ ] 100g Olive Oil
+- [ ] 30g White Wine Vinegar
+- [ ] 2g Red Pepper Flakes
+- [ ] 2g Oregano
+- [ ] 2 Cloves of minced garlic
+- [ ] Parsley

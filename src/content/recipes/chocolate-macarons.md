@@ -19,17 +19,16 @@ Large chocolate macarons with a simple ganache filling.
 ## Ingredients
 
 ### Shells
-- 2 egg whites
-- 1/2 cup (100 g) granulated sugar
-- 3/4 cup (70 g) almond flour
-- 3/4 cup (90 g) powdered sugar
-- 1/4 cup (30 g) cocoa powder
-- Pinch of salt
+- [ ] 2 egg whites
+- [ ] 1/2 cup (100 g) granulated sugar
+- [ ] 3/4 cup (70 g) almond flour
+- [ ] 3/4 cup (90 g) powdered sugar
+- [ ] 1/4 cup (30 g) cocoa powder
+- [ ] Pinch of salt
 
 ### Ganache Filling
-- 2 tablespoons heavy cream
-- 2 tablespoons chocolate
-
+- [ ] 2 tablespoons heavy cream
+- [ ] 2 tablespoons chocolate
 ## Instructions
 1. Beat the egg whites until fluffy.
 2. Gradually beat in the granulated sugar until glossy with soft peaks.

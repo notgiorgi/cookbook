@@ -25,31 +25,30 @@ A spicy, savory lo mein with marinated beef and chilies.
 ## Ingredients
 
 ### Noodles
-- 200 g lo mein noodles, fresh or par-cooked
-- Neutral oil, as needed for stir-frying
+- [ ] 200 g lo mein noodles, fresh or par-cooked
+- [ ] Neutral oil, as needed for stir-frying
 
 ### Marinated Beef
-- About 200 g beef sirloin, thinly sliced
-- 10 g light soy sauce
-- 3 g sugar
-- 2 g baking soda
-- 10 g cornstarch
-- 10 g chili crisp oil
+- [ ] About 200 g beef sirloin, thinly sliced
+- [ ] 10 g light soy sauce
+- [ ] 3 g sugar
+- [ ] 2 g baking soda
+- [ ] 10 g cornstarch
+- [ ] 10 g chili crisp oil
 
 ### Sauce
-- 50 g oyster sauce
-- 10 g light soy sauce
-- 10 g dark soy sauce
-- 5 g beef bouillon paste
+- [ ] 50 g oyster sauce
+- [ ] 10 g light soy sauce
+- [ ] 10 g dark soy sauce
+- [ ] 5 g beef bouillon paste
 
 ### Aromatics and Vegetables
-- 1 shallot, diced
-- Thai chilies, sliced, to taste
-- 1/2 bell pepper, sliced
-- 1 carrot, julienned
-- 1 handful mushrooms, sliced
-- Scallions, chopped, for garnish
-
+- [ ] 1 shallot, diced
+- [ ] Thai chilies, sliced, to taste
+- [ ] 1/2 bell pepper, sliced
+- [ ] 1 carrot, julienned
+- [ ] 1 handful mushrooms, sliced
+- [ ] Scallions, chopped, for garnish
 ## Instructions
 1. Boil the noodles to the low end of the package instructions so they stay slightly underdone. Drain and set aside.
 2. Slice the beef thinly against the grain into bite-sized pieces.

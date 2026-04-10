@@ -14,18 +14,17 @@ source_file: "Baked oats.md"
 Baked oats with blueberries, cream cheese, and swirls of blueberry preserves.
 
 ## Ingredients
-- 4 cups old-fashioned oats
-- 1 1/2 teaspoons baking powder
-- 1 teaspoon salt
-- 4 cups milk
-- 3 eggs, divided
-- 3 tablespoons melted butter or oil
-- 2 teaspoons vanilla, or 4 teaspoons bourbon
-- 1 cup frozen wild blueberries
-- 1 package (8 ounces) cream cheese, softened
-- 1/3 cup granulated sugar
-- Up to 1/2 cup blueberry preserves
-
+- [ ] 4 cups old-fashioned oats
+- [ ] 1 1/2 teaspoons baking powder
+- [ ] 1 teaspoon salt
+- [ ] 4 cups milk
+- [ ] 3 eggs, divided
+- [ ] 3 tablespoons melted butter or oil
+- [ ] 2 teaspoons vanilla, or 4 teaspoons bourbon
+- [ ] 1 cup frozen wild blueberries
+- [ ] 1 package (8 ounces) cream cheese, softened
+- [ ] 1/3 cup granulated sugar
+- [ ] Up to 1/2 cup blueberry preserves
 ## Instructions
 1. In a large bowl, mix the oats, milk, baking powder, salt, 2 eggs, melted butter, vanilla, and frozen blueberries.
 2. Pour into a greased 13 x 9-inch baking dish and let stand for 15 minutes.

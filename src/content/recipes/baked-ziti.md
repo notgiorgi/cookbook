@@ -17,26 +17,25 @@ A rich baked pasta with a tomato sauce, ricotta mixture, and mozzarella topping.
 ## Ingredients
 
 ### Sauce and Pasta
-- 1 package ziti (about 500 g)
-- 4 tablespoons unsalted butter
-- 4 tablespoons extra-virgin olive oil
-- 1/2 large onion, or 1 regular onion, roughly chopped
-- Garlic, minced
-- Red pepper flakes
-- Dried oregano
-- Fresh basil sprigs
-- Crushed tomatoes
-- Salt, to taste
+- [ ] 1 package ziti (about 500 g)
+- [ ] 4 tablespoons unsalted butter
+- [ ] 4 tablespoons extra-virgin olive oil
+- [ ] 1/2 large onion, or 1 regular onion, roughly chopped
+- [ ] Garlic, minced
+- [ ] Red pepper flakes
+- [ ] Dried oregano
+- [ ] Fresh basil sprigs
+- [ ] Crushed tomatoes
+- [ ] Salt, to taste
 
 ### Cheese Mixture
-- 1 pound low-moisture mozzarella, cubed
-- 12 ounces ricotta
-- 1.5 ounces Parmesan, shredded, plus more for finishing
-- 2 large eggs
-- Fresh parsley, minced
-- Fresh basil, minced
-- Olive oil, for finishing
-
+- [ ] 1 pound low-moisture mozzarella, cubed
+- [ ] 12 ounces ricotta
+- [ ] 1.5 ounces Parmesan, shredded, plus more for finishing
+- [ ] 2 large eggs
+- [ ] Fresh parsley, minced
+- [ ] Fresh basil, minced
+- [ ] Olive oil, for finishing
 ## Instructions
 1. Soak the ziti in warm salted water for 20 to 30 minutes, stirring occasionally, until it absorbs most of the water and turns pale.
 2. Heat the butter and olive oil in a large pot or Dutch oven over medium heat.

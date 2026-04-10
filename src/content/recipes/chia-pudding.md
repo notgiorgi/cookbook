@@ -17,18 +17,17 @@ Creamy make-ahead chia pudding for four servings.
 4 servings
 
 ## Ingredients
-- 4 cups (960 ml) unsweetened soy milk
-- 3/4 cup (125 g) whole chia seeds
-- 4 tablespoons (60 ml) maple syrup
-- 1 teaspoon (5 ml) vanilla extract
-- 1/2 teaspoon (1.3 g) ground cinnamon (optional)
+- [ ] 4 cups (960 ml) unsweetened soy milk
+- [ ] 3/4 cup (125 g) whole chia seeds
+- [ ] 4 tablespoons (60 ml) maple syrup
+- [ ] 1 teaspoon (5 ml) vanilla extract
+- [ ] 1/2 teaspoon (1.3 g) ground cinnamon (optional)
 
 ### Toppings
-- 1 1/4 cups plus 1 tablespoon (170 g) frozen mixed berries
-- 1 cup (260 g) unsweetened soy yogurt
-- 3/4 cup (90 g) vegan granola
-- 1 cup (150 g) fresh mixed berries (optional)
-
+- [ ] 1 1/4 cups plus 1 tablespoon (170 g) frozen mixed berries
+- [ ] 1 cup (260 g) unsweetened soy yogurt
+- [ ] 3/4 cup (90 g) vegan granola
+- [ ] 1 cup (150 g) fresh mixed berries (optional)
 ## Instructions
 1. Whisk together the soy milk, maple syrup, vanilla, and cinnamon in a large bowl or container.
 2. Add the chia seeds and whisk well.

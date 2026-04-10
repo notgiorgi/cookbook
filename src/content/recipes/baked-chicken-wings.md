@@ -17,19 +17,18 @@ Crispy oven-baked wings finished with a buttery hot sauce.
 ## Ingredients
 
 ### Wings
-- 2 pounds (900 g) chicken wings, cut into drumettes and flats
-- 2 teaspoons (10 g) baking powder
-- 2 teaspoons (10 g) kosher salt, or half as much table salt by volume
-- 2 teaspoons (10 g) cornstarch
-- 2 tablespoons neutral oil, such as canola or vegetable
+- [ ] 2 pounds (900 g) chicken wings, cut into drumettes and flats
+- [ ] 2 teaspoons (10 g) baking powder
+- [ ] 2 teaspoons (10 g) kosher salt, or half as much table salt by volume
+- [ ] 2 teaspoons (10 g) cornstarch
+- [ ] 2 tablespoons neutral oil, such as canola or vegetable
 
 ### Sauce
-- 4 tablespoons (50 g) unsalted butter
-- 2 to 6 cloves garlic, minced
-- 4 tablespoons (60 ml) Frank's RedHot sauce
-- Blue cheese dressing, for serving
-- Celery sticks, for serving
-
+- [ ] 4 tablespoons (50 g) unsalted butter
+- [ ] 2 to 6 cloves garlic, minced
+- [ ] 4 tablespoons (60 ml) Frank's RedHot sauce
+- [ ] Blue cheese dressing, for serving
+- [ ] Celery sticks, for serving
 ## Instructions
 
 1. Pat the chicken wings very dry with paper towels.

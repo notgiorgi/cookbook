@@ -24,32 +24,31 @@ A lighter lo mein with extra chicken and vegetables.
 ## Ingredients
 
 ### Noodles
-- 150 g lo mein noodles
-- Neutral oil, as needed for stir-frying
+- [ ] 150 g lo mein noodles
+- [ ] Neutral oil, as needed for stir-frying
 
 ### Chicken
-- 300 g chicken breast, thinly sliced
-- 10 g light soy sauce
-- 3 g chicken bouillon
-- 3 g sesame oil
-- 10 g Shaoxing wine
+- [ ] 300 g chicken breast, thinly sliced
+- [ ] 10 g light soy sauce
+- [ ] 3 g chicken bouillon
+- [ ] 3 g sesame oil
+- [ ] 10 g Shaoxing wine
 
 ### Sauce
-- 25 g light soy sauce
-- 15 g oyster sauce
-- 10 g sugar
-- 5 g chicken bouillon
-- Splash of water
+- [ ] 25 g light soy sauce
+- [ ] 15 g oyster sauce
+- [ ] 10 g sugar
+- [ ] 5 g chicken bouillon
+- [ ] Splash of water
 
 ### Aromatics and Vegetables
-- 2 cloves garlic, minced
-- 1-inch knob fresh ginger, minced
-- 1/2 bunch Chinese broccoli, chopped
-- 1/2 yellow squash, sliced
-- 1/2 bell pepper, sliced
-- 1/2 red onion, sliced
-- Handful of bean sprouts
-
+- [ ] 2 cloves garlic, minced
+- [ ] 1-inch knob fresh ginger, minced
+- [ ] 1/2 bunch Chinese broccoli, chopped
+- [ ] 1/2 yellow squash, sliced
+- [ ] 1/2 bell pepper, sliced
+- [ ] 1/2 red onion, sliced
+- [ ] Handful of bean sprouts
 ## Instructions
 1. Boil the noodles to the low end of the package instructions so they stay slightly underdone. Drain and set aside.
 2. Slice the chicken into thin bite-sized pieces.

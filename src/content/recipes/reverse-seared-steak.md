@@ -12,6 +12,6 @@ source_file: "recipe-collection.md"
 
 Imported from the loose recipe collection notes.
 
-## Notes
+## Ingredients
 
-- 120deg oven until steak registers 48deg (about 1,5hr)
+- [ ] 120deg oven until steak registers 48deg (about 1,5hr)

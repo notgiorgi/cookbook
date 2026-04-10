@@ -23,18 +23,17 @@ Slow-fermented focaccia baked in a 22 x 33 cm pan.
 ## Ingredients
 
 ### Dough
-- 500 g bread flour
-- 450 g water (90% hydration)
-- 10 g salt
-- 5 g active dry yeast
-- 25 g olive oil
+- [ ] 500 g bread flour
+- [ ] 450 g water (90% hydration)
+- [ ] 10 g salt
+- [ ] 5 g active dry yeast
+- [ ] 25 g olive oil
 
 ### Pan and Topping
-- Olive oil, for greasing and drizzling
-- Flaky salt
-- Fresh herbs, such as rosemary or thyme
-- Garlic, olives, or other toppings
-
+- [ ] Olive oil, for greasing and drizzling
+- [ ] Flaky salt
+- [ ] Fresh herbs, such as rosemary or thyme
+- [ ] Garlic, olives, or other toppings
 ## Instructions
 1. Mix the flour and yeast in a large bowl.
 2. Add the water and stir until the flour is incorporated.
