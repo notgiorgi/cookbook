@@ -18,6 +18,11 @@ const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env
   <article class="card">
     <div class="no-print">
       <p><a href={homeUrl}>← Back to all recipes</a></p>
+      <div class="toggle-row">
+        <input id="wake-lock-toggle" type="checkbox" />
+        <label for="wake-lock-toggle">Don’t lock my screen</label>
+      </div>
+      <p class="meta" id="wake-lock-status" style="margin-top: -0.35rem;"></p>
       <p class="meta">Status: {recipe.data.status}</p>
       {recipe.data.tags.length > 0 && (
         <div class="tags">
@@ -46,18 +51,71 @@ const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env
 
         const storageKey = `cookbook:${window.location.pathname}:ingredient:${listIndex}:${itemIndex}`;
         const checked = window.localStorage.getItem(storageKey) === 'true';
+        const textNode = Array.from(item.childNodes).find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+        const labelText = textNode ? textNode.textContent.trim() : item.textContent.trim();
 
         const interactive = document.createElement('input');
         interactive.type = 'checkbox';
         interactive.className = 'ingredient-check';
         interactive.checked = checked;
 
+        const label = document.createElement('label');
+        label.className = 'ingredient-label';
+        label.appendChild(interactive);
+        label.append(document.createTextNode(labelText));
+
         interactive.addEventListener('change', () => {
           window.localStorage.setItem(storageKey, String(interactive.checked));
         });
 
-        rendered.replaceWith(interactive);
+        item.innerHTML = '';
+        item.appendChild(label);
       });
     });
+
+    const wakeToggle = document.querySelector('#wake-lock-toggle');
+    const wakeStatus = document.querySelector('#wake-lock-status');
+    let wakeLock = null;
+
+    const setWakeStatus = (text) => {
+      if (wakeStatus) wakeStatus.textContent = text;
+    };
+
+    const requestWakeLock = async () => {
+      if (!('wakeLock' in navigator)) {
+        setWakeStatus('Wake lock is not supported in this browser.');
+        if (wakeToggle) wakeToggle.checked = false;
+        return;
+      }
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        setWakeStatus('Screen will stay awake while this page is open.');
+        wakeLock.addEventListener('release', () => {
+          if (wakeToggle) wakeToggle.checked = false;
+          setWakeStatus('Wake lock released.');
+        });
+      } catch (error) {
+        setWakeStatus('Could not keep the screen awake here.');
+        if (wakeToggle) wakeToggle.checked = false;
+      }
+    };
+
+    if (wakeToggle) {
+      wakeToggle.addEventListener('change', async () => {
+        if (wakeToggle.checked) {
+          await requestWakeLock();
+        } else if (wakeLock) {
+          await wakeLock.release();
+          wakeLock = null;
+          setWakeStatus('Wake lock turned off.');
+        }
+      });
+
+      document.addEventListener('visibilitychange', async () => {
+        if (document.visibilityState === 'visible' && wakeToggle.checked && !wakeLock) {
+          await requestWakeLock();
+        }
+      });
+    }
   </script>
 </BaseLayout>
