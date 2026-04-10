@@ -34,4 +34,30 @@ const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env
       <p class="meta no-print" style="margin-top: 2rem;">Source: <a href={recipe.data.source_url}>{recipe.data.source_url}</a></p>
     )}
   </article>
+
+  <script>
+    const ingredientLists = Array.from(document.querySelectorAll('ul.contains-task-list'));
+
+    ingredientLists.forEach((list, listIndex) => {
+      const items = Array.from(list.querySelectorAll('li.task-list-item'));
+      items.forEach((item, itemIndex) => {
+        const rendered = item.querySelector('input[type="checkbox"]');
+        if (!rendered) return;
+
+        const storageKey = `cookbook:${window.location.pathname}:ingredient:${listIndex}:${itemIndex}`;
+        const checked = window.localStorage.getItem(storageKey) === 'true';
+
+        const interactive = document.createElement('input');
+        interactive.type = 'checkbox';
+        interactive.className = 'ingredient-check';
+        interactive.checked = checked;
+
+        interactive.addEventListener('change', () => {
+          window.localStorage.setItem(storageKey, String(interactive.checked));
+        });
+
+        rendered.replaceWith(interactive);
+      });
+    });
+  </script>
 </BaseLayout>
