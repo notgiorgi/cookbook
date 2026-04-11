@@ -13,6 +13,10 @@ const recipes = defineCollection({
     source_url: z.string().url().optional(),
     image: z.string().optional(),
     image_alt: z.string().optional(),
+    images: z.array(z.object({
+      src: z.string(),
+      alt: z.string().optional(),
+    })).optional(),
   }),
 });
 

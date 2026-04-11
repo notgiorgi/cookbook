@@ -39,7 +39,20 @@ const homeUrl = recipe.data.tags[0]
 
     <h1 class="m-0">{recipe.data.title}</h1>
 
-    {recipe.data.image && (
+    {recipe.data.images?.length ? (
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {recipe.data.images.map((image) => (
+          <figure class="overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
+            <img
+              src={image.src}
+              alt={image.alt || recipe.data.title}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </figure>
+        ))}
+      </div>
+    ) : recipe.data.image && (
       <figure class="mt-6 overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
         <img
           src={recipe.data.image}
