@@ -16,6 +16,11 @@ const baseUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env
 const homeUrl = recipe.data.tags[0]
   ? `${baseUrl}?tag=${encodeURIComponent(recipe.data.tags[0])}`
   : baseUrl;
+const withBase = (path) => {
+  if (!path) return path;
+  if (/^https?:\/\//.test(path)) return path;
+  return `${baseUrl}${path.replace(/^\//, '')}`;
+};
 ---
 <BaseLayout title={recipe.data.title}>
   <article class="rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
@@ -44,7 +49,7 @@ const homeUrl = recipe.data.tags[0]
         {recipe.data.images.map((image) => (
           <figure class="overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
             <img
-              src={image.src}
+              src={withBase(image.src)}
               alt={image.alt || recipe.data.title}
               class="h-full w-full object-cover"
               loading="lazy"
@@ -55,7 +60,7 @@ const homeUrl = recipe.data.tags[0]
     ) : recipe.data.image && (
       <figure class="mt-6 overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
         <img
-          src={recipe.data.image}
+          src={withBase(recipe.data.image)}
           alt={recipe.data.image_alt || recipe.data.title}
           class="h-auto w-full object-cover"
           loading="lazy"
