@@ -33,54 +33,54 @@ const activeTag = Astro.url.searchParams.get('tag')?.trim().toLowerCase() ?? '';
 const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
 ---
 <BaseLayout title="Cookbook">
-  <section class="hero-panel hero-panel-compact">
-    <div class="hero-copy-block">
-      <h2 class="hero-title">Find something good to cook.</h2>
-      <p class="hero-copy">
+  <section class="mb-6 grid gap-4 rounded-[28px] border border-[color:rgba(142,101,73,0.16)] bg-[linear-gradient(135deg,rgba(255,250,244,0.92),rgba(247,237,226,0.84)),radial-gradient(circle_at_top_left,rgba(255,255,255,0.9),transparent_35%)] p-4 shadow-[var(--shadow-card)] sm:mb-8 sm:grid-cols-[minmax(0,1fr)_minmax(300px,1.1fr)] sm:items-center sm:p-5">
+    <div class="max-w-[26rem]">
+      <h2 class="m-0 max-w-[10ch] text-[1.9rem] sm:max-w-[11ch] sm:text-[2.6rem]">Find something good to cook.</h2>
+      <p class="mt-2 max-w-[32ch] text-base text-mute sm:text-[1.02rem]">
         Search by name, ingredient, or tag.
       </p>
     </div>
 
-    <div class="hero-controls">
+    <div class="grid gap-3">
       <input
         id="recipe-search"
-        class="search-input"
+        class="w-full rounded-2xl border border-[color:var(--color-line)] bg-white/80 px-4 py-4 font-inherit text-ink outline-none ring-0 placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-[rgba(154,79,47,0.28)]"
         type="search"
         placeholder="Search recipes, tags, ingredients..."
         aria-label="Search recipes"
         value={activeQuery}
       />
-      <div class="hero-actions">
-        <button id="random-recipe" class="button button-primary" type="button">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <button id="random-recipe" class="inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-accent px-4 py-3 font-inherit text-[0.98rem] text-[#fff7f0] no-underline transition hover:bg-[#8b4427]" type="button">
           Random recipe
         </button>
-        <span class="meta stat-pill">{published.length} published</span>
+        <span class="inline-flex items-center rounded-full border border-[color:var(--color-line)] bg-white/55 px-3 py-1.5 text-[0.95rem] text-mute">{published.length} published</span>
       </div>
     </div>
   </section>
 
-  <section style="margin-bottom: 2rem;" data-category-section="all">
-    <div class="section-heading">
+  <section class="mb-8" data-category-section="all">
+    <div class="mb-4 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
       <div>
         <h2>All recipes</h2>
       </div>
-      {activeTag && <p class="meta">Filtered by tag: <strong>{activeTag}</strong></p>}
+      {activeTag && <p class="text-[0.95rem] text-mute">Filtered by tag: <strong>{activeTag}</strong></p>}
     </div>
 
-    <div class="grid recipe-grid">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
       {published.map((recipe) => (
         <article
-          class="card recipe-card"
+          class="grid content-start gap-3 rounded-[24px] border border-[color:var(--color-line)] bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(248,240,230,0.88))] p-[1.1rem] shadow-[var(--shadow-card)] transition hover:-translate-y-[3px] hover:border-[color:rgba(154,79,47,0.26)] hover:shadow-[0_20px_46px_rgba(77,45,24,0.12)]"
           data-searchable
           data-title={recipe.data.title.toLowerCase()}
           data-tags={recipe.data.tags.join(' ').toLowerCase()}
         >
-          <div class="recipe-card-top">
-            <p class="meta recipe-date">Added {recipe.createdLabel}</p>
+          <div class="grid gap-2.5">
+            <p class="m-0 text-[0.8rem] text-mute">Added {recipe.createdLabel}</p>
             {recipe.data.tags.length > 0 && (
-              <div class="tags recipe-tags">
+              <div class="mt-0 flex flex-wrap gap-1.5">
                 {recipe.data.tags.map((tag) => (
-                  <button class="tag tag-button" type="button" data-tag-filter={tag}>
+                  <button class="inline-flex cursor-pointer items-center whitespace-nowrap rounded-full border border-[rgba(154,79,47,0.08)] bg-[rgba(154,79,47,0.06)] px-2 py-1 text-[0.64rem] leading-none text-[rgba(108,47,23,0.72)] no-underline transition hover:-translate-y-px hover:bg-[rgba(154,79,47,0.12)] data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-[#fff7f0]" type="button" data-tag-filter={tag}>
                     {tag}
                   </button>
                 ))}
@@ -88,16 +88,16 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
             )}
           </div>
 
-          <h3 class="recipe-title">
-            <a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
+          <h3 class="m-0 text-[1.5rem]">
+            <a class="text-inherit no-underline hover:text-accent-strong" href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
           </h3>
         </article>
       ))}
     </div>
   </section>
 
-  <p class="meta" style="margin-top: 2rem;">
-    Looking for rougher notes? <a class="text-link" href={draftsUrl}>Browse drafts</a>.
+  <p class="mt-8 text-[0.95rem] text-mute">
+    Looking for rougher notes? <a class="no-underline" href={draftsUrl}>Browse drafts</a>.
   </p>
 
   <script>
@@ -106,7 +106,7 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
     const cards = Array.from(document.querySelectorAll('[data-searchable]'));
     const sections = Array.from(document.querySelectorAll('[data-category-section]'));
     const tagButtons = Array.from(document.querySelectorAll('[data-tag-filter]'));
-    const publishedRecipeLinks = Array.from(document.querySelectorAll('.recipe-card .recipe-title a'));
+    const publishedRecipeLinks = Array.from(document.querySelectorAll('article h3 a'));
 
     const getState = () => {
       const params = new URLSearchParams(window.location.search);
@@ -145,13 +145,13 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
       });
 
       sections.forEach((section) => {
-        const visibleCards = section.querySelectorAll('.recipe-card:not([style*="display: none"])');
+        const visibleCards = section.querySelectorAll('article:not([style*="display: none"])');
         section.style.display = visibleCards.length ? '' : 'none';
       });
 
       tagButtons.forEach((button) => {
         const isActive = (button.dataset.tagFilter || '').toLowerCase() === tag;
-        button.classList.toggle('active', isActive);
+        button.dataset.active = isActive ? 'true' : 'false';
         button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     };
@@ -177,7 +177,7 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
 
     if (randomButton && publishedRecipeLinks.length) {
       randomButton.addEventListener('click', () => {
-        const visibleRecipeLinks = publishedRecipeLinks.filter((link) => link.closest('.recipe-card')?.style.display !== 'none');
+        const visibleRecipeLinks = publishedRecipeLinks.filter((link) => link.closest('article')?.style.display !== 'none');
         const pool = visibleRecipeLinks.length ? visibleRecipeLinks : publishedRecipeLinks;
         const pick = pool[Math.floor(Math.random() * pool.length)];
         if (pick?.href) window.location.href = pick.href;

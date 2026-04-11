@@ -18,30 +18,32 @@ const homeUrl = recipe.data.tags[0]
   : baseUrl;
 ---
 <BaseLayout title={recipe.data.title}>
-  <article class="card">
-    <div class="no-print">
-      <p><a href={homeUrl}>← Back to all recipes</a></p>
-      <div class="toggle-row">
+  <article class="rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
+    <div class="mb-6 no-print">
+      <p class="mb-3"><a href={homeUrl}>← Back to all recipes</a></p>
+      <div class="mb-4 flex items-center gap-3">
         <input id="wake-lock-toggle" type="checkbox" />
         <label for="wake-lock-toggle">Don’t lock my screen</label>
       </div>
-      <p class="meta" id="wake-lock-status" style="margin-top: -0.35rem;"></p>
-      <p class="meta">Status: {recipe.data.status}</p>
+      <p class="-mt-1 text-[0.95rem] text-mute" id="wake-lock-status"></p>
+      <p class="text-[0.95rem] text-mute">Status: {recipe.data.status}</p>
       {recipe.data.tags.length > 0 && (
-        <div class="tags">
+        <div class="mt-4 flex flex-wrap gap-1.5">
           {recipe.data.tags.map((tag) => (
-            <a class="tag" href={`${baseUrl}?tag=${encodeURIComponent(tag)}`}>{tag}</a>
+            <a class="inline-flex items-center whitespace-nowrap rounded-full border border-[rgba(154,79,47,0.08)] bg-[rgba(154,79,47,0.06)] px-2 py-1 text-[0.64rem] leading-none text-[rgba(108,47,23,0.72)] no-underline" href={`${baseUrl}?tag=${encodeURIComponent(tag)}`}>{tag}</a>
           ))}
         </div>
       )}
-      <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #eadfd3;" />
+      <hr class="mt-6 border-0 border-t border-[color:var(--color-line)]" />
     </div>
 
-    <h1>{recipe.data.title}</h1>
-    <Content />
+    <h1 class="m-0">{recipe.data.title}</h1>
+    <div class="prose prose-stone mt-6 max-w-none prose-headings:font-serif prose-headings:text-ink prose-p:text-ink prose-li:text-ink prose-strong:text-ink prose-a:text-accent-strong">
+      <Content />
+    </div>
 
     {recipe.data.source_url && (
-      <p class="meta no-print" style="margin-top: 2rem;">Source: <a href={recipe.data.source_url}>{recipe.data.source_url}</a></p>
+      <p class="no-print mt-8 text-[0.95rem] text-mute">Source: <a href={recipe.data.source_url}>{recipe.data.source_url}</a></p>
     )}
   </article>
 
@@ -65,7 +67,7 @@ const homeUrl = recipe.data.tags[0]
         interactive.checked = checked;
 
         const label = document.createElement('label');
-        label.className = 'ingredient-label';
+        label.className = 'cursor-pointer';
         label.appendChild(interactive);
         label.append(document.createTextNode(labelText));
 

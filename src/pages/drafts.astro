@@ -17,18 +17,18 @@ const withBase = (path) => {
 const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
 ---
 <BaseLayout title="Cookbook Drafts">
-  <section class="card" style="margin-bottom: 1rem;">
-    <p><a href={homeUrl}>← Back to published recipes</a></p>
-    <h2>Drafts</h2>
-    <p class="meta">Rough notes, placeholders, and recipes that still need cleanup.</p>
+  <section class="mb-4 rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
+    <p class="mb-3"><a href={homeUrl}>← Back to published recipes</a></p>
+    <h2 class="m-0">Drafts</h2>
+    <p class="mt-2 text-[0.95rem] text-mute">Rough notes, placeholders, and recipes that still need cleanup.</p>
   </section>
 
-  <div class="grid">
+  <div class="grid gap-4">
     {recipes.map((recipe) => (
-      <article class="card">
-        <h3><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
-        <div class="tags">
-          {recipe.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+      <article class="rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
+        <h3 class="m-0"><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
+        <div class="mt-4 flex flex-wrap gap-1.5">
+          {recipe.data.tags.map((tag) => <span class="inline-flex items-center whitespace-nowrap rounded-full border border-[rgba(154,79,47,0.08)] bg-[rgba(154,79,47,0.06)] px-2 py-1 text-[0.64rem] leading-none text-[rgba(108,47,23,0.72)]">{tag}</span>)}
         </div>
       </article>
     ))}
