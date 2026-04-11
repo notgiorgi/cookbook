@@ -73,7 +73,9 @@ const withBase = (path) => {
     </div>
 
     {recipe.data.source_url && (
-      <p class="no-print mt-8 text-[0.95rem] text-mute">Source: <a href={recipe.data.source_url}>{recipe.data.source_url}</a></p>
+      <p class="no-print mt-8 text-[0.95rem] text-mute">
+        Source: <a class="break-all" href={recipe.data.source_url}>Original recipe</a>
+      </p>
     )}
   </article>
 
