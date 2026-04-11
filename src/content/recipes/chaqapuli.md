@@ -9,6 +9,8 @@ tags:
   - stew
   - spring
 source_url: "https://europroduct.ge/recipe/%E1%83%A9%E1%83%90%E1%83%A5%E1%83%90%E1%83%A4%E1%83%A3%E1%83%9A%E1%83%98"
+image: "/images/recipes/chaqapuli-prep.jpg"
+image_alt: "Prep for chaqapuli with chopped meat, a large bowl of tarragon, wine, and tkemali on the counter"
 ---
 A Georgian herb-heavy stew traditionally made with meat, tarragon, wine, and tart plums or tkemali.
 

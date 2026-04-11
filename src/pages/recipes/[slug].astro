@@ -38,6 +38,18 @@ const homeUrl = recipe.data.tags[0]
     </div>
 
     <h1 class="m-0">{recipe.data.title}</h1>
+
+    {recipe.data.image && (
+      <figure class="mt-6 overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
+        <img
+          src={recipe.data.image}
+          alt={recipe.data.image_alt || recipe.data.title}
+          class="h-auto w-full object-cover"
+          loading="lazy"
+        />
+      </figure>
+    )}
+
     <div class="prose prose-stone mt-6 max-w-none prose-headings:font-serif prose-headings:text-ink prose-p:text-ink prose-li:text-ink prose-strong:text-ink prose-a:text-accent-strong">
       <Content />
     </div>

@@ -11,6 +11,8 @@ const recipes = defineCollection({
     source_repo: z.string().optional(),
     source_file: z.string().optional(),
     source_url: z.string().url().optional(),
+    image: z.string().optional(),
+    image_alt: z.string().optional(),
   }),
 });
 
