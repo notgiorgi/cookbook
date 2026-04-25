@@ -8,6 +8,7 @@ tags:
   - stew
   - meat
   - tomato
+source_url: "https://youtu.be/9OjNTIpeAqY"
 ---
 A tomato-forward Georgian-style meat stew built from browned neck meat, caramelized onions, and fresh herbs at the end.
 
@@ -35,10 +36,3 @@ A tomato-forward Georgian-style meat stew built from browned neck meat, carameli
 6. Return the browned meat to the pot.
 7. Cover and stew gently for about 1 1/2 hours, until the meat is tender and the sauce is rich.
 8. Chop the cilantro and parsley, stir them into the stew, then turn off the heat.
-
-## Notes
-
-- The source notes specify a 1 kg batch, 400 g onion, and a herb finish of 12 g cilantro plus 18 g parsley.
-- The fenugreek and coriander were assumed as 1 tablespoon each, as requested.
-- Fresh tomatoes were assumed as 1 kg, with canned tomato plus passata accepted as an equivalent shortcut.
-- Tomato paste amount was set to 1 to 2 tablespoons because the revised method included it but no exact quantity was given.
