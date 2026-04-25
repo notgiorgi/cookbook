@@ -26,6 +26,7 @@ Organized recipe collection, ready to grow into an Astro content repo.
 - **Dal** (`draft`) - imported, notes
 - **Flamkuchen 2 პორცია** (`draft`) - imported, notes
 - **Focaccia** (`published`) - bread, baking, italian, focaccia
+- **Georgian Meat Stew** (`published`) - main, georgian, stew, meat, tomato
 - **Kung Pao Chicken** (`published`) - chicken, stir-fry, chinese, spicy
 - **Lo Mein noodles** (`draft`) - imported, notes
 - **Meatballs** (`draft`) - meat, italian, freeform

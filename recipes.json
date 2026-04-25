@@ -117,18 +117,6 @@
     "path": "src/content/recipes/chicken-tikka-masala.md"
   },
   {
-    "title": "Chimichurri 2",
-    "slug": "chimichurri-2",
-    "status": "draft",
-    "tags": [
-      "imported",
-      "notes"
-    ],
-    "source_file": "recipe-collection.md",
-    "source_url": "",
-    "path": "src/content/recipes/chimichurri-2.md"
-  },
-  {
     "title": "Chimichurri",
     "slug": "chimichurri",
     "status": "draft",
@@ -139,6 +127,18 @@
     "source_file": "recipe-collection.md",
     "source_url": "",
     "path": "src/content/recipes/chimichurri.md"
+  },
+  {
+    "title": "Chimichurri 2",
+    "slug": "chimichurri-2",
+    "status": "draft",
+    "tags": [
+      "imported",
+      "notes"
+    ],
+    "source_file": "recipe-collection.md",
+    "source_url": "",
+    "path": "src/content/recipes/chimichurri-2.md"
   },
   {
     "title": "Chocolate Macarons",
@@ -205,6 +205,21 @@
     "source_file": "Focaccia.md",
     "source_url": "",
     "path": "src/content/recipes/focaccia.md"
+  },
+  {
+    "title": "Georgian Meat Stew",
+    "slug": "georgian-meat-stew",
+    "status": "published",
+    "tags": [
+      "main",
+      "georgian",
+      "stew",
+      "meat",
+      "tomato"
+    ],
+    "source_file": "",
+    "source_url": "",
+    "path": "src/content/recipes/georgian-meat-stew.md"
   },
   {
     "title": "Higher Protein Chicken Lo Mein",
