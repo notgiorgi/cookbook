@@ -20,7 +20,8 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 
 ## Ingredients
 
-### Marinade
+**Marinade**
+
 - [ ] 2 tablespoons lemon juice
 - [ ] 3 cloves garlic
 - [ ] 1 tablespoon dried oregano
@@ -30,11 +31,13 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 - [ ] 1/2 teaspoon MSG (optional, but recommended)
 - [ ] 1 teaspoon freshly ground black pepper
 
-### Chicken
+**Chicken**
+
 - [ ] 1 tablespoon olive oil
 - [ ] 2 pounds boneless, skinless chicken thighs
 
-### Rice
+**Rice**
+
 - [ ] 1 1/2 cups long-grain or basmati rice, rinsed and drained
 - [ ] 1 tablespoon butter
 - [ ] 1/2 teaspoon ground cumin
@@ -43,7 +46,8 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 - [ ] Salt and pepper, to taste
 - [ ] Pinch MSG (optional)
 
-### White sauce
+**White sauce**
+
 - [ ] 1/2 cup mayonnaise
 - [ ] 1/2 cup Greek yogurt
 - [ ] 1 tablespoon sugar
@@ -54,7 +58,8 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 - [ ] 1/2 teaspoon black pepper
 - [ ] 2 tablespoons chopped parsley or dill
 
-### For serving
+**For serving**
+
 - [ ] Shredded iceberg lettuce
 - [ ] Chopped tomatoes
 - [ ] Hot sauce
