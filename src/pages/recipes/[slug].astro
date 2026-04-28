@@ -80,6 +80,36 @@ const withBase = (path) => {
   </article>
 
   <script>
+    const article = document.querySelector('article');
+    const contentRoot = article?.querySelector('.prose');
+
+    if (contentRoot) {
+      const headings = Array.from(contentRoot.querySelectorAll('h2'));
+      const ingredientsHeading = headings.find((heading) => heading.textContent?.trim().toLowerCase() === 'ingredients');
+
+      if (ingredientsHeading) {
+        let sibling = ingredientsHeading.nextElementSibling;
+        let seenIngredientGroup = false;
+
+        while (sibling && sibling.tagName !== 'H2') {
+          if (sibling.tagName === 'H3') {
+            sibling.classList.add('ingredient-group-heading');
+            if (!seenIngredientGroup) {
+              sibling.classList.add('ingredient-group-heading--first');
+              seenIngredientGroup = true;
+            }
+
+            const next = sibling.nextElementSibling;
+            if (next?.tagName === 'UL') {
+              next.classList.add('ingredient-group-list');
+            }
+          }
+
+          sibling = sibling.nextElementSibling;
+        }
+      }
+    }
+
     const ingredientLists = Array.from(document.querySelectorAll('ul.contains-task-list'));
 
     ingredientLists.forEach((list, listIndex) => {
