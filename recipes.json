@@ -236,6 +236,20 @@
     "path": "src/content/recipes/higher-protein-chicken-lo-mein.md"
   },
   {
+    "title": "Hummus",
+    "slug": "hummus",
+    "status": "published",
+    "tags": [
+      "dip",
+      "chickpeas",
+      "middle-eastern",
+      "sauce"
+    ],
+    "source_file": "image note scaled from 2-can version",
+    "source_url": "",
+    "path": "src/content/recipes/hummus.md"
+  },
+  {
     "title": "Kung Pao Chicken",
     "slug": "kung-pao-chicken",
     "status": "published",
