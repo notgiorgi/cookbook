@@ -17,6 +17,7 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 - Do not marinate the chicken much longer than 4 hours or it can turn dry and chalky.
 - If you are in a rush, you can skip the longer rest and cook the chicken right after coating it.
 - For a sauce closer to the modern Halal Guys style, leave out the yogurt, lemon juice, and herbs.
+- The base marinade below is the main one for this recipe, but three additional yogurt-based marinade variations are included further down.
 
 ## Ingredients
 
@@ -74,6 +75,50 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 2. Put the chicken in a bowl and pour over half the marinade, reserving the rest.
 3. Massage well to coat, then cover and refrigerate for at least 1 hour and up to 4 hours.
 
+### Alternative marinades
+
+#### Indian Malai Marinade
+
+- [ ] 250 g hung yogurt
+- [ ] 100 g cream cheese
+- [ ] 40 g ginger-garlic paste
+- [ ] 2 to 3 green chilies, finely chopped
+- [ ] 8 g salt
+- [ ] 1 teaspoon black peppercorns
+- [ ] Seeds from 5 to 6 green cardamom pods
+- [ ] Small pinch mace
+- [ ] Small pinch freshly grated nutmeg
+- [ ] Little cumin
+
+Grind the whole spices into a powder. Whisk the yogurt and cream cheese until smooth, then mix in the remaining ingredients and press well into the chicken.
+
+#### Turkish Yoghurt Marinade
+
+- [ ] 250 g yogurt
+- [ ] 15 g garlic, crushed to a paste
+- [ ] 60 g red pepper paste (biber salçası)
+- [ ] 8 g paprika
+- [ ] 8 g pul biber (Turkish chili flakes)
+- [ ] 4 g dried oregano
+- [ ] 4 g za’atar
+- [ ] 10 g salt
+- [ ] Splash of olive oil
+
+Mix the yogurt and pepper paste until smooth, then stir in the garlic, spices, salt, and oil. Coat the chicken thoroughly.
+
+#### Persian Jujeh Marinade
+
+- [ ] 150 g yogurt
+- [ ] 100 g fresh grated tomatoes, excess water removed
+- [ ] 50 ml rapeseed oil
+- [ ] 15 ml lemon juice
+- [ ] 15 ml saffron water, bloomed
+- [ ] 12 g salt
+- [ ] 1.5 g turmeric
+- [ ] 2 g ground black pepper
+
+Mix the chicken first with the salt, oil, lemon juice, and part of the turmeric. Separately mix the yogurt with the tomatoes, pepper, and saffron water, then combine both parts and coat the chicken.
+
 ### Cook the chicken
 
 4. Heat 1 tablespoon olive oil in a large skillet over medium-high heat.
@@ -104,3 +149,8 @@ A street-cart-style chicken and rice plate with spiced rice, crisp salad, and wh
 20. Cook, stirring constantly, until the marinade reduces and coats the meat, a few minutes.
 21. Taste and adjust with salt, pepper, MSG, and lemon juice if needed.
 22. Spoon the chicken over the rice and serve with lettuce, tomatoes, white sauce, hot sauce, onion, and pita if using.
+
+## References
+
+- Original recipe: https://frienji.kenjilopezalt.com/posts/this-halal-cart-153948287?postId=this-halal-cart-153948287
+- Additional marinade reference: https://youtu.be/HppJ7TInPec?si=
