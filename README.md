@@ -16,6 +16,7 @@ Organized recipe collection, ready to grow into an Astro content repo.
 - **Basic marinade for every meat** (`draft`) - imported, notes
 - **Basic Vinaigrette** (`draft`) - imported, notes
 - **BBQ Rub** (`draft`) - imported, notes
+- **Beef Cutlets** (`published`) - main, beef, cutlets, pan-fried, freeform
 - **Blueberry Cream Cheese Baked Oats** (`published`) - breakfast, oats, baked, blueberry
 - **Brownies 5m** (`draft`) - imported, notes
 - **Chia Pudding** (`published`) - breakfast, vegan, meal-prep, chia

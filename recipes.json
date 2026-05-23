@@ -64,6 +64,21 @@
     "path": "src/content/recipes/bbq-rub.md"
   },
   {
+    "title": "Beef Cutlets",
+    "slug": "beef-cutlets",
+    "status": "published",
+    "tags": [
+      "main",
+      "beef",
+      "cutlets",
+      "pan-fried",
+      "freeform"
+    ],
+    "source_file": "chat note",
+    "source_url": "",
+    "path": "src/content/recipes/beef-cutlets.md"
+  },
+  {
     "title": "Blueberry Cream Cheese Baked Oats",
     "slug": "blueberry-cream-cheese-baked-oats",
     "status": "published",
