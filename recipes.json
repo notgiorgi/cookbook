@@ -416,5 +416,20 @@
     "source_file": "recipe-collection.md",
     "source_url": "",
     "path": "src/content/recipes/tortillas.md"
+  },
+  {
+    "title": "Waffles",
+    "slug": "waffles",
+    "status": "published",
+    "tags": [
+      "breakfast",
+      "waffles",
+      "sweet",
+      "baking",
+      "quick"
+    ],
+    "source_file": "chat note",
+    "source_url": "",
+    "path": "src/content/recipes/waffles.md"
   }
 ]
