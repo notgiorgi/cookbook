@@ -40,4 +40,5 @@ Organized recipe collection, ready to grow into an Astro content repo.
 - **Reverse Seared steak** (`draft`) - imported, notes
 - **TERIYAKI SAUCE** (`draft`) - imported, notes
 - **Tortillas** (`draft`) - imported, notes
+- **Tuna Salad** (`published`) - salad, tuna, quick, sandwich, spread
 - **Waffles** (`published`) - breakfast, waffles, sweet, baking, quick

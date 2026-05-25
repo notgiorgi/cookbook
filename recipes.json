@@ -418,6 +418,21 @@
     "path": "src/content/recipes/tortillas.md"
   },
   {
+    "title": "Tuna Salad",
+    "slug": "tuna-salad",
+    "status": "published",
+    "tags": [
+      "salad",
+      "tuna",
+      "quick",
+      "sandwich",
+      "spread"
+    ],
+    "source_file": "photo note",
+    "source_url": "",
+    "path": "src/content/recipes/tuna-salad.md"
+  },
+  {
     "title": "Waffles",
     "slug": "waffles",
     "status": "published",
