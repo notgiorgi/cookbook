@@ -15,6 +15,7 @@ Organized recipe collection, ready to grow into an Astro content repo.
 - **Baked Ziti** (`published`) - pasta, baked, italian, casserole
 - **Basic marinade for every meat** (`draft`) - imported, notes
 - **Basic Vinaigrette** (`draft`) - imported, notes
+- **Avocado Crema** (`published`) - sauce, dip, avocado, quick, mexican-inspired
 - **BBQ Rub** (`draft`) - imported, notes
 - **Beef Cutlets** (`published`) - main, beef, cutlets, pan-fried, freeform
 - **Blueberry Cream Cheese Baked Oats** (`published`) - breakfast, oats, baked, blueberry

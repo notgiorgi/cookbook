@@ -1,5 +1,20 @@
 [
   {
+    "title": "Avocado Crema",
+    "slug": "avocado-crema",
+    "status": "published",
+    "tags": [
+      "sauce",
+      "dip",
+      "avocado",
+      "quick",
+      "mexican-inspired"
+    ],
+    "source_file": "chat note",
+    "source_url": "",
+    "path": "src/content/recipes/avocado-crema.md"
+  },
+  {
     "title": "Baked Chicken Wings",
     "slug": "baked-chicken-wings",
     "status": "published",
