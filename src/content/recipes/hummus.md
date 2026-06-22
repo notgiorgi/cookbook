@@ -18,12 +18,13 @@ A simple hummus formula scaled down from a 2-can chickpea version to 1 can.
 - [ ] 125 g tahini
 - [ ] 35 to 50 g ice
 - [ ] 37.5 ml lemon juice
+- [ ] 1 teaspoon cumin
 - [ ] 1 teaspoon salt
 
 ## Instructions
 
 1. Drain and rinse the chickpeas well.
-2. Add the tahini, lemon juice, and salt to a food processor or blender and blend until smooth.
+2. Add the tahini, lemon juice, cumin, and salt to a food processor or blender and blend until smooth.
 3. Add the chickpeas and blend again.
 4. Add the ice gradually and keep blending until the hummus turns light and creamy.
 5. Taste and adjust with more lemon juice or salt if needed.
