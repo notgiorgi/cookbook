@@ -21,7 +21,7 @@ A quick coconut curry with crisped chickpeas, flexible vegetables, and a lime-ba
 - [ ] 1 medium onion, diced
 - [ ] 3 cloves garlic, minced
 - [ ] 1 tablespoon fresh ginger, grated
-- [ ] 2-3 tablespoons curry paste, red or yellow
+- [ ] 1-3 tablespoons curry paste, red or yellow, based on spice level
 - [ ] 2-3 cups vegetables, such as bell pepper, broccoli, green beans, peas, or spinach
 - [ ] 1-2 tablespoons neutral oil
 - [ ] 1/2-1 teaspoon salt, to taste
