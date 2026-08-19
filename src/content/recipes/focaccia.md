@@ -10,6 +10,8 @@ tags:
   - focaccia
 source_repo: "recipes"
 source_file: "Focaccia.md"
+image: "/images/recipes/focaccia.webp"
+image_alt: "Freshly baked focaccia."
 ---
 Slow-fermented focaccia baked in a 22 x 33 cm pan.
 
