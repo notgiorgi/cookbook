@@ -10,6 +10,8 @@ tags:
   - vegetarian
 source_repo: "recipes"
 source_file: "recipe-collection.md"
+image: "/images/recipes/masoor-dal.jpg"
+image_alt: "A bowl of masoor dal topped with red onion and cilantro, served with toast and lemon wedges."
 ---
 A simple red lentil dal with ghee, curry leaves, warm spices, tomato, lemon, and cilantro.
 
