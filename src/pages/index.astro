@@ -29,41 +29,38 @@ const recipes = (await getCollection('recipes'))
 
 const published = recipes.filter((recipe) => recipe.data.status === 'published');
 const draftsUrl = withBase('drafts/');
+const searchUrl = withBase('search/');
 const activeTag = Astro.url.searchParams.get('tag')?.trim().toLowerCase() ?? '';
-const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
 ---
 <BaseLayout title="Cookbook">
-  <section class="mb-12 grid gap-8 border-b border-[color:var(--color-line)] pb-10 sm:mb-16 sm:grid-cols-[minmax(0,0.85fr)_minmax(320px,1fr)] sm:items-end sm:pb-14">
-    <div class="max-w-[30rem]">
-      <p class="m-0 text-[0.95rem] font-medium text-mute">{published.length} published recipes</p>
-      <h2 class="m-0 mt-3 max-w-[12ch] text-[2.65rem] sm:text-[4.25rem]">Find something good to cook.</h2>
-      <p class="mt-5 max-w-[34ch] text-[1.05rem] leading-[1.55] text-mute">
-        A quiet index for dinners, sauces, breads, sweets, and experiments worth repeating.
-      </p>
-    </div>
-
-    <div class="grid gap-3">
+  <section class="mb-10 border-b border-[color:var(--color-line)] pb-8 sm:mb-14 sm:pb-10">
+    <p class="m-0 text-[0.95rem] font-medium text-mute">{published.length} published recipes</p>
+    <h2 class="m-0 mt-3 max-w-[13ch] text-[2.15rem] sm:text-[3.4rem]">Cookbook</h2>
+    <form class="mt-6 grid gap-3" action={searchUrl} method="get">
+      <label class="sr-only" for="recipe-search-entry">Search recipes</label>
       <input
-        id="recipe-search"
-        class="w-full rounded-[10px] border border-[color:var(--color-line)] bg-panel px-4 py-4 font-inherit text-ink outline-none ring-0 placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-black"
+        id="recipe-search-entry"
+        class="w-full rounded-[10px] border border-[color:var(--color-line-strong)] bg-panel px-4 py-4 font-inherit text-[1.08rem] text-ink outline-none ring-0 placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-black"
         type="search"
-        placeholder="Search recipes, tags, ingredients..."
-        aria-label="Search recipes"
-        value={activeQuery}
+        name="q"
+        placeholder="Search recipes, ingredients, tags…"
+        autocomplete="off"
       />
       <div class="flex flex-wrap items-center gap-2.5">
-        <button id="random-recipe" class="inline-flex cursor-pointer items-center justify-center rounded-[10px] border border-transparent bg-accent px-4 py-3 font-inherit text-[0.98rem] font-medium text-white no-underline transition hover:bg-[rgb(0_0_0/0.78)] active:bg-[rgb(0_0_0/0.72)]" type="button">
-          Random recipe
+        <button class="inline-flex cursor-pointer items-center justify-center rounded-[10px] border border-transparent bg-accent px-4 py-3 font-inherit text-[0.98rem] font-medium text-white no-underline transition hover:bg-[rgb(0_0_0/0.78)] active:bg-[rgb(0_0_0/0.72)]" type="submit">
+          Search
         </button>
-        <span class="inline-flex items-center rounded-[10px] border border-[color:var(--color-line)] bg-panel-soft px-3 py-1.5 text-[0.95rem] text-mute">Filter by tag below</span>
+        <button id="random-recipe" class="inline-flex cursor-pointer items-center justify-center rounded-[10px] border border-[color:var(--color-line)] bg-panel px-4 py-3 font-inherit text-[0.98rem] font-medium text-ink no-underline transition hover:bg-panel-soft" type="button">
+          Random
+        </button>
       </div>
-    </div>
+    </form>
   </section>
 
   <section class="mb-8" data-category-section="all">
-    <div class="mb-6 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+    <div class="mb-5 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
       <div>
-        <h2 class="m-0 text-[1.8rem]">All recipes</h2>
+        <h2 class="m-0 text-[1.45rem]">All recipes</h2>
       </div>
       {activeTag && <p class="m-0 text-[0.95rem] text-mute">Filtered by tag: <strong class="font-medium text-ink">{activeTag}</strong></p>}
     </div>
@@ -71,27 +68,22 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
     <div class="grid border-t border-[color:var(--color-line)]">
       {published.map((recipe) => (
         <article
-          class="grid gap-4 border-b border-[color:var(--color-line)] py-5 transition hover:bg-panel-soft sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.4fr)] sm:items-start sm:px-3"
+          class="grid gap-2 border-b border-[color:var(--color-line)] py-4 transition hover:bg-panel-soft sm:-mx-3 sm:px-3"
           data-searchable
-          data-title={recipe.data.title.toLowerCase()}
           data-tags={recipe.data.tags.join(' ').toLowerCase()}
         >
-          <div class="grid gap-2.5">
-            <p class="m-0 text-[0.9rem] text-mute">Added {recipe.createdLabel}</p>
-            {recipe.data.tags.length > 0 && (
-              <div class="mt-0 flex flex-wrap gap-1.5">
-                {recipe.data.tags.map((tag) => (
-                  <button class="inline-flex cursor-pointer items-center whitespace-nowrap rounded-[999px] border border-[color:var(--color-line)] bg-transparent px-2.5 py-1 text-[0.72rem] leading-none text-mute no-underline transition hover:bg-panel-soft hover:text-ink data-[active=true]:border-black data-[active=true]:bg-black data-[active=true]:text-white" type="button" data-tag-filter={tag}>
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <h3 class="m-0 text-[1.65rem] sm:text-[1.95rem]">
+          <h3 class="m-0 text-[1.22rem] sm:text-[1.35rem]">
             <a class="text-inherit no-underline hover:underline" href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
           </h3>
+          {recipe.data.tags.length > 0 && (
+            <div class="mt-0 flex flex-wrap gap-1.5">
+              {recipe.data.tags.map((tag) => (
+                <button class="inline-flex cursor-pointer items-center whitespace-nowrap rounded-[999px] border border-[color:var(--color-line)] bg-transparent px-2.5 py-1 text-[0.72rem] leading-none text-mute no-underline transition hover:bg-panel-soft hover:text-ink data-[active=true]:border-black data-[active=true]:bg-black data-[active=true]:text-white" type="button" data-tag-filter={tag}>
+                  {tag}
+                </button>
+              ))}
+            </div>
+          )}
         </article>
       ))}
     </div>
@@ -102,7 +94,7 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
   </p>
 
   <script>
-    const input = document.querySelector('#recipe-search');
+    const input = document.querySelector('#recipe-search-entry');
     const randomButton = document.querySelector('#random-recipe');
     const cards = Array.from(document.querySelectorAll('[data-searchable]'));
     const sections = Array.from(document.querySelectorAll('[data-category-section]'));
@@ -112,16 +104,12 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
     const getState = () => {
       const params = new URLSearchParams(window.location.search);
       return {
-        query: (params.get('q') || '').trim().toLowerCase(),
         tag: (params.get('tag') || '').trim().toLowerCase(),
       };
     };
 
-    const setParams = ({ query, tag }) => {
+    const setParams = ({ tag }) => {
       const params = new URLSearchParams(window.location.search);
-
-      if (query) params.set('q', query);
-      else params.delete('q');
 
       if (tag) params.set('tag', tag);
       else params.delete('tag');
@@ -132,17 +120,12 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
     };
 
     const applyFilters = () => {
-      const { query, tag } = getState();
-
-      if (input && input.value !== query) input.value = query;
+      const { tag } = getState();
 
       cards.forEach((card) => {
-        const title = card.dataset.title || '';
         const tags = card.dataset.tags || '';
-        const haystack = `${title} ${tags}`;
-        const matchesQuery = !query || haystack.includes(query);
         const matchesTag = !tag || tags.split(/\s+/).includes(tag);
-        card.style.display = matchesQuery && matchesTag ? '' : 'none';
+        card.style.display = matchesTag ? '' : 'none';
       });
 
       sections.forEach((section) => {
@@ -158,9 +141,8 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
     };
 
     if (input) {
-      input.addEventListener('input', () => {
-        setParams({ query: input.value.trim().toLowerCase(), tag: getState().tag });
-        applyFilters();
+      input.addEventListener('focus', () => {
+        window.location.href = '/cookbook/search/';
       });
     }
 
@@ -168,7 +150,7 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
       button.addEventListener('click', () => {
         const selectedTag = (button.dataset.tagFilter || '').trim().toLowerCase();
         const currentTag = getState().tag;
-        setParams({ query: getState().query, tag: currentTag === selectedTag ? '' : selectedTag });
+        setParams({ tag: currentTag === selectedTag ? '' : selectedTag });
         applyFilters();
       });
     });

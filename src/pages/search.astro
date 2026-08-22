@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const withBase = (path) => {
+  const base = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path}`;
+};
+
+const normalizeText = (value = '') => value
+  .replace(/^---[\s\S]*?---/, '')
+  .replace(/[#*_`>[\]-]/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+const recipes = (await getCollection('recipes'))
+  .filter((recipe) => recipe.data.status === 'published')
+  .map((recipe) => {
+    const body = normalizeText(recipe.body ?? '');
+
+    return {
+      slug: recipe.id,
+      title: recipe.data.title,
+      tags: recipe.data.tags,
+      href: withBase(`recipes/${recipe.id}/`),
+      body,
+      summary: body.slice(0, 180),
+    };
+  })
+  .sort((a, b) => a.title.localeCompare(b.title));
+---
+<BaseLayout title="Search recipes">
+  <section class="mx-auto max-w-[760px]">
+    <div class="sticky top-0 z-10 -mx-5 border-b border-[color:var(--color-line)] bg-canvas/95 px-5 py-4 backdrop-blur sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
+      <a class="mb-3 inline-flex text-[0.95rem] text-mute no-underline hover:text-ink" href={withBase('')}>← Cookbook</a>
+      <label class="sr-only" for="recipe-search-screen">Search recipes</label>
+      <input
+        id="recipe-search-screen"
+        class="w-full rounded-[10px] border border-[color:var(--color-line-strong)] bg-panel px-4 py-4 font-inherit text-[1.15rem] text-ink outline-none placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-black"
+        type="search"
+        placeholder="Search recipes, ingredients, tags…"
+        autocomplete="off"
+        autofocus
+      />
+      <p id="search-count" class="m-0 mt-3 text-[0.92rem] text-mute"></p>
+    </div>
+
+    <div id="search-results" class="grid pt-3" aria-live="polite"></div>
+  </section>
+
+  <script type="application/json" id="recipe-search-data" set:html={JSON.stringify(recipes)} />
+
+  <script>
+    import Fuse from 'fuse.js';
+
+    const input = document.querySelector('#recipe-search-screen');
+    const resultsRoot = document.querySelector('#search-results');
+    const count = document.querySelector('#search-count');
+    const dataNode = document.querySelector('#recipe-search-data');
+    const recipes = JSON.parse(dataNode?.textContent || '[]');
+
+    const fuse = new Fuse(recipes, {
+      includeMatches: true,
+      ignoreLocation: true,
+      threshold: 0.34,
+      keys: [
+        { name: 'title', weight: 0.45 },
+        { name: 'tags', weight: 0.3 },
+        { name: 'body', weight: 0.25 },
+      ],
+    });
+
+    const escapeHtml = (value) => String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+
+    const getSnippet = (recipe, matches) => {
+      const bodyMatch = matches?.find((match) => match.key === 'body' && match.indices?.length);
+      if (!bodyMatch) return recipe.summary || 'Open recipe';
+
+      const [start, end] = bodyMatch.indices[0];
+      const from = Math.max(0, start - 48);
+      const to = Math.min(recipe.body.length, end + 72);
+      const prefix = from > 0 ? '…' : '';
+      const suffix = to < recipe.body.length ? '…' : '';
+      return `${prefix}${recipe.body.slice(from, to)}${suffix}`;
+    };
+
+    const render = () => {
+      const query = (input?.value || '').trim();
+      const params = new URLSearchParams(window.location.search);
+
+      if (query) params.set('q', query);
+      else params.delete('q');
+
+      const nextSearch = params.toString();
+      window.history.replaceState({}, '', `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ''}`);
+
+      const matches = query
+        ? fuse.search(query).map((result) => ({ recipe: result.item, matches: result.matches }))
+        : recipes.map((recipe) => ({ recipe, matches: [] }));
+
+      if (count) {
+        count.textContent = query
+          ? `${matches.length} ${matches.length === 1 ? 'result' : 'results'} for “${query}”`
+          : `${recipes.length} recipes`;
+      }
+
+      if (!resultsRoot) return;
+
+      if (!matches.length) {
+        resultsRoot.innerHTML = '<p class="py-10 text-mute">No recipes found. Try an ingredient, dish, or tag.</p>';
+        return;
+      }
+
+      resultsRoot.innerHTML = matches.map(({ recipe, matches }) => `
+        <a class="group grid gap-2 border-b border-[color:var(--color-line)] py-4 text-inherit no-underline transition hover:bg-panel-soft sm:-mx-3 sm:px-3" href="${escapeHtml(recipe.href)}">
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="m-0 text-[1.25rem] font-semibold tracking-[-0.025em] group-hover:underline">${escapeHtml(recipe.title)}</h2>
+            <span class="shrink-0 text-[1.1rem] text-mute" aria-hidden="true">→</span>
+          </div>
+          ${recipe.tags?.length ? `<p class="m-0 text-[0.82rem] text-mute">${recipe.tags.map(escapeHtml).join(' · ')}</p>` : ''}
+          <p class="m-0 line-clamp-2 text-[0.95rem] leading-[1.45] text-mute">${escapeHtml(getSnippet(recipe, matches))}</p>
+        </a>
+      `).join('');
+    };
+
+    if (input) {
+      const initial = new URLSearchParams(window.location.search).get('q') || '';
+      input.value = initial;
+      input.addEventListener('input', render);
+      window.requestAnimationFrame(() => input.focus());
+    }
+
+    window.addEventListener('popstate', () => {
+      if (input) input.value = new URLSearchParams(window.location.search).get('q') || '';
+      render();
+    });
+
+    render();
+  </script>
+</BaseLayout>
