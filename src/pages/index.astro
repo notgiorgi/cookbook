@@ -33,11 +33,7 @@ const draftsUrl = withBase('drafts/');
 ---
 <BaseLayout title="Cookbook">
   <section class="mx-auto max-w-[760px]">
-    <div class="sticky top-0 z-10 -mx-5 border-b border-[color:var(--color-line)] bg-canvas/95 px-5 py-4 backdrop-blur sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
-      <div class="mb-3 flex items-baseline justify-between gap-3">
-        <p class="m-0 text-[0.95rem] font-medium text-mute">{recipes.length} recipes</p>
-        <a class="text-[0.95rem] text-mute no-underline hover:text-ink hover:underline" href={draftsUrl}>Drafts</a>
-      </div>
+    <div class="sticky top-0 z-10 -mx-5 border-b border-[color:var(--color-line)] bg-canvas/95 px-5 py-3 backdrop-blur sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
       <label class="sr-only" for="recipe-search-screen">Search recipes</label>
       <input
         id="recipe-search-screen"
@@ -47,7 +43,10 @@ const draftsUrl = withBase('drafts/');
         autocomplete="off"
         autofocus
       />
-      <p id="search-count" class="m-0 mt-3 text-[0.92rem] text-mute"></p>
+      <div class="mt-3 flex items-baseline justify-between gap-3">
+        <p id="search-count" class="m-0 text-[0.92rem] text-mute"></p>
+        <a class="text-[0.92rem] text-mute no-underline hover:text-ink hover:underline" href={draftsUrl}>Drafts</a>
+      </div>
     </div>
 
     <div id="search-results" class="grid pt-3" aria-live="polite"></div>
