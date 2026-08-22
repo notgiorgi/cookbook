@@ -17,18 +17,18 @@ const withBase = (path) => {
 const homeUrl = `${import.meta.env.BASE_URL}`.endsWith('/') ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}/`;
 ---
 <BaseLayout title="Cookbook Drafts">
-  <section class="mb-4 rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
-    <p class="mb-3"><a href={homeUrl}>← Back to published recipes</a></p>
-    <h2 class="m-0">Drafts</h2>
-    <p class="mt-2 text-[0.95rem] text-mute">Rough notes, placeholders, and recipes that still need cleanup.</p>
+  <section class="mb-10 border-b border-[color:var(--color-line)] pb-8">
+    <p class="mb-5"><a class="text-mute no-underline hover:text-ink hover:underline" href={homeUrl}>← Back to published recipes</a></p>
+    <h2 class="m-0 text-[2.6rem] sm:text-[4rem]">Drafts</h2>
+    <p class="mt-4 max-w-[34rem] text-[1.05rem] leading-[1.55] text-mute">Rough notes, placeholders, and recipes that still need cleanup.</p>
   </section>
 
-  <div class="grid gap-4">
+  <div class="grid border-t border-[color:var(--color-line)]">
     {recipes.map((recipe) => (
-      <article class="rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
-        <h3 class="m-0"><a href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
-        <div class="mt-4 flex flex-wrap gap-1.5">
-          {recipe.data.tags.map((tag) => <span class="inline-flex items-center whitespace-nowrap rounded-full border border-[rgba(154,79,47,0.08)] bg-[rgba(154,79,47,0.06)] px-2 py-1 text-[0.64rem] leading-none text-[rgba(108,47,23,0.72)]">{tag}</span>)}
+      <article class="grid gap-4 border-b border-[color:var(--color-line)] py-5 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] sm:px-3">
+        <h3 class="m-0 text-[1.65rem]"><a class="text-inherit no-underline hover:underline" href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a></h3>
+        <div class="flex flex-wrap gap-1.5 sm:justify-end">
+          {recipe.data.tags.map((tag) => <span class="inline-flex items-center whitespace-nowrap rounded-[999px] border border-[color:var(--color-line)] px-2.5 py-1 text-[0.72rem] leading-none text-mute">{tag}</span>)}
         </div>
       </article>
     ))}

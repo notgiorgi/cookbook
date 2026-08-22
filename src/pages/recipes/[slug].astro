@@ -23,31 +23,32 @@ const withBase = (path) => {
 };
 ---
 <BaseLayout title={recipe.data.title}>
-  <article class="rounded-[24px] border border-[color:var(--color-line)] bg-panel px-5 py-5 shadow-[var(--shadow-card)]">
-    <div class="mb-6 no-print">
-      <p class="mb-3"><a href={homeUrl}>← Back to all recipes</a></p>
-      <div class="mb-4 flex items-center gap-3">
-        <input id="wake-lock-toggle" type="checkbox" />
-        <label for="wake-lock-toggle">Don’t lock my screen</label>
+  <article class="mx-auto max-w-[860px]">
+    <div class="mb-10 no-print border-b border-[color:var(--color-line)] pb-6">
+      <p class="mb-5"><a class="text-[0.95rem] text-mute no-underline hover:text-ink hover:underline" href={homeUrl}>← Back to all recipes</a></p>
+      <div class="mb-4 flex flex-wrap items-center gap-3 text-[0.95rem] text-mute">
+        <label class="inline-flex items-center gap-2 text-ink" for="wake-lock-toggle">
+          <input id="wake-lock-toggle" type="checkbox" />
+          Don’t lock my screen
+        </label>
+        <span>Status: {recipe.data.status}</span>
       </div>
       <p class="-mt-1 text-[0.95rem] text-mute" id="wake-lock-status"></p>
-      <p class="text-[0.95rem] text-mute">Status: {recipe.data.status}</p>
       {recipe.data.tags.length > 0 && (
-        <div class="mt-4 flex flex-wrap gap-1.5">
+        <div class="mt-5 flex flex-wrap gap-1.5">
           {recipe.data.tags.map((tag) => (
-            <a class="inline-flex items-center whitespace-nowrap rounded-full border border-[rgba(154,79,47,0.08)] bg-[rgba(154,79,47,0.06)] px-2 py-1 text-[0.64rem] leading-none text-[rgba(108,47,23,0.72)] no-underline" href={`${baseUrl}?tag=${encodeURIComponent(tag)}`}>{tag}</a>
+            <a class="inline-flex items-center whitespace-nowrap rounded-[999px] border border-[color:var(--color-line)] bg-transparent px-2.5 py-1 text-[0.72rem] leading-none text-mute no-underline hover:bg-panel-soft hover:text-ink" href={`${baseUrl}?tag=${encodeURIComponent(tag)}`}>{tag}</a>
           ))}
         </div>
       )}
-      <hr class="mt-6 border-0 border-t border-[color:var(--color-line)]" />
     </div>
 
-    <h1 class="m-0">{recipe.data.title}</h1>
+    <h1 class="m-0 max-w-[12ch] text-[2.6rem] sm:text-[4rem]">{recipe.data.title}</h1>
 
     {recipe.data.images?.length ? (
-      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
         {recipe.data.images.map((image) => (
-          <figure class="overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
+          <figure class="overflow-hidden rounded-[12px] border border-[color:var(--color-line)] bg-panel-soft">
             <img
               src={withBase(image.src)}
               alt={image.alt || recipe.data.title}
@@ -58,7 +59,7 @@ const withBase = (path) => {
         ))}
       </div>
     ) : recipe.data.image && (
-      <figure class="mt-6 overflow-hidden rounded-[20px] border border-[color:var(--color-line)] bg-panel-soft">
+      <figure class="mt-8 overflow-hidden rounded-[12px] border border-[color:var(--color-line)] bg-panel-soft">
         <img
           src={withBase(recipe.data.image)}
           alt={recipe.data.image_alt || recipe.data.title}
@@ -68,7 +69,7 @@ const withBase = (path) => {
       </figure>
     )}
 
-    <div class="prose prose-stone mt-6 max-w-none prose-headings:font-serif prose-headings:text-ink prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-ol:mt-3 prose-ol:mb-6 prose-ul:mt-3 prose-ul:mb-6 prose-li:my-2 prose-p:text-ink prose-li:text-ink prose-strong:text-ink prose-a:text-accent-strong">
+    <div class="prose mt-10 max-w-none prose-headings:font-sans prose-headings:font-semibold prose-headings:text-ink prose-h2:mt-14 prose-h2:mb-4 prose-h2:border-t prose-h2:border-[color:var(--color-line)] prose-h2:pt-8 prose-h3:mt-8 prose-h3:mb-3 prose-ol:mt-3 prose-ol:mb-8 prose-ul:mt-3 prose-ul:mb-8 prose-li:my-2 prose-p:text-ink prose-li:text-ink prose-strong:text-ink prose-a:text-accent-strong">
       <Content />
     </div>
 

@@ -33,54 +33,55 @@ const activeTag = Astro.url.searchParams.get('tag')?.trim().toLowerCase() ?? '';
 const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
 ---
 <BaseLayout title="Cookbook">
-  <section class="mb-6 grid gap-4 rounded-[28px] border border-[color:rgba(142,101,73,0.16)] bg-[linear-gradient(135deg,rgba(255,250,244,0.92),rgba(247,237,226,0.84)),radial-gradient(circle_at_top_left,rgba(255,255,255,0.9),transparent_35%)] p-4 shadow-[var(--shadow-card)] sm:mb-8 sm:grid-cols-[minmax(0,1fr)_minmax(300px,1.1fr)] sm:items-center sm:p-5">
-    <div class="max-w-[26rem]">
-      <h2 class="m-0 max-w-[10ch] text-[1.9rem] sm:max-w-[11ch] sm:text-[2.6rem]">Find something good to cook.</h2>
-      <p class="mt-2 max-w-[32ch] text-base text-mute sm:text-[1.02rem]">
-        Search by name, ingredient, or tag.
+  <section class="mb-12 grid gap-8 border-b border-[color:var(--color-line)] pb-10 sm:mb-16 sm:grid-cols-[minmax(0,0.85fr)_minmax(320px,1fr)] sm:items-end sm:pb-14">
+    <div class="max-w-[30rem]">
+      <p class="m-0 text-[0.95rem] font-medium text-mute">{published.length} published recipes</p>
+      <h2 class="m-0 mt-3 max-w-[12ch] text-[2.65rem] sm:text-[4.25rem]">Find something good to cook.</h2>
+      <p class="mt-5 max-w-[34ch] text-[1.05rem] leading-[1.55] text-mute">
+        A quiet index for dinners, sauces, breads, sweets, and experiments worth repeating.
       </p>
     </div>
 
     <div class="grid gap-3">
       <input
         id="recipe-search"
-        class="w-full rounded-2xl border border-[color:var(--color-line)] bg-white/80 px-4 py-4 font-inherit text-ink outline-none ring-0 placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-[rgba(154,79,47,0.28)]"
+        class="w-full rounded-[10px] border border-[color:var(--color-line)] bg-panel px-4 py-4 font-inherit text-ink outline-none ring-0 placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-black"
         type="search"
         placeholder="Search recipes, tags, ingredients..."
         aria-label="Search recipes"
         value={activeQuery}
       />
       <div class="flex flex-wrap items-center gap-2.5">
-        <button id="random-recipe" class="inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-accent px-4 py-3 font-inherit text-[0.98rem] text-[#fff7f0] no-underline transition hover:bg-[#8b4427]" type="button">
+        <button id="random-recipe" class="inline-flex cursor-pointer items-center justify-center rounded-[10px] border border-transparent bg-accent px-4 py-3 font-inherit text-[0.98rem] font-medium text-white no-underline transition hover:bg-[rgb(0_0_0/0.78)] active:bg-[rgb(0_0_0/0.72)]" type="button">
           Random recipe
         </button>
-        <span class="inline-flex items-center rounded-full border border-[color:var(--color-line)] bg-white/55 px-3 py-1.5 text-[0.95rem] text-mute">{published.length} published</span>
+        <span class="inline-flex items-center rounded-[10px] border border-[color:var(--color-line)] bg-panel-soft px-3 py-1.5 text-[0.95rem] text-mute">Filter by tag below</span>
       </div>
     </div>
   </section>
 
   <section class="mb-8" data-category-section="all">
-    <div class="mb-4 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+    <div class="mb-6 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
       <div>
-        <h2>All recipes</h2>
+        <h2 class="m-0 text-[1.8rem]">All recipes</h2>
       </div>
-      {activeTag && <p class="text-[0.95rem] text-mute">Filtered by tag: <strong>{activeTag}</strong></p>}
+      {activeTag && <p class="m-0 text-[0.95rem] text-mute">Filtered by tag: <strong class="font-medium text-ink">{activeTag}</strong></p>}
     </div>
 
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+    <div class="grid border-t border-[color:var(--color-line)]">
       {published.map((recipe) => (
         <article
-          class="grid content-start gap-3 rounded-[24px] border border-[color:var(--color-line)] bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(248,240,230,0.88))] p-[1.1rem] shadow-[var(--shadow-card)] transition hover:-translate-y-[3px] hover:border-[color:rgba(154,79,47,0.26)] hover:shadow-[0_20px_46px_rgba(77,45,24,0.12)]"
+          class="grid gap-4 border-b border-[color:var(--color-line)] py-5 transition hover:bg-panel-soft sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.4fr)] sm:items-start sm:px-3"
           data-searchable
           data-title={recipe.data.title.toLowerCase()}
           data-tags={recipe.data.tags.join(' ').toLowerCase()}
         >
           <div class="grid gap-2.5">
-            <p class="m-0 text-[0.8rem] text-mute">Added {recipe.createdLabel}</p>
+            <p class="m-0 text-[0.9rem] text-mute">Added {recipe.createdLabel}</p>
             {recipe.data.tags.length > 0 && (
               <div class="mt-0 flex flex-wrap gap-1.5">
                 {recipe.data.tags.map((tag) => (
-                  <button class="inline-flex cursor-pointer items-center whitespace-nowrap rounded-full border border-[rgba(154,79,47,0.08)] bg-[rgba(154,79,47,0.06)] px-2 py-1 text-[0.64rem] leading-none text-[rgba(108,47,23,0.72)] no-underline transition hover:-translate-y-px hover:bg-[rgba(154,79,47,0.12)] data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-[#fff7f0]" type="button" data-tag-filter={tag}>
+                  <button class="inline-flex cursor-pointer items-center whitespace-nowrap rounded-[999px] border border-[color:var(--color-line)] bg-transparent px-2.5 py-1 text-[0.72rem] leading-none text-mute no-underline transition hover:bg-panel-soft hover:text-ink data-[active=true]:border-black data-[active=true]:bg-black data-[active=true]:text-white" type="button" data-tag-filter={tag}>
                     {tag}
                   </button>
                 ))}
@@ -88,8 +89,8 @@ const activeQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
             )}
           </div>
 
-          <h3 class="m-0 text-[1.5rem]">
-            <a class="text-inherit no-underline hover:text-accent-strong" href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
+          <h3 class="m-0 text-[1.65rem] sm:text-[1.95rem]">
+            <a class="text-inherit no-underline hover:underline" href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
           </h3>
         </article>
       ))}

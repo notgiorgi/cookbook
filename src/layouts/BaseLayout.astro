@@ -11,15 +11,15 @@ const { title = 'Cookbook' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="mx-auto max-w-[1080px] px-4 pb-16 pt-3 sm:pt-4">
-      <header class="mb-4 py-1 sm:mb-5">
-        <a class="inline-flex items-baseline gap-2 text-inherit no-underline" href={`${import.meta.env.BASE_URL}`}>
-          <span class="text-[0.72rem] uppercase tracking-[0.16em] text-mute sm:text-[0.75rem]">Cookbook</span>
-          <h1 class="m-0 text-[1.2rem] sm:text-[1.45rem]">Gio’s recipes</h1>
+    <div class="mx-auto max-w-[1120px] px-5 pb-16 pt-5 sm:px-8 sm:pt-7 lg:px-10">
+      <header class="mb-8 flex items-center justify-between border-b border-[color:var(--color-line)] pb-4 sm:mb-12">
+        <a class="group inline-flex items-baseline gap-3 text-inherit no-underline" href={`${import.meta.env.BASE_URL}`}>
+          <span class="text-[0.8rem] font-medium text-mute transition group-hover:text-ink">Cookbook</span>
+          <h1 class="m-0 text-[1.25rem] font-semibold tracking-[-0.035em] sm:text-[1.5rem]">Gio’s recipes</h1>
         </a>
       </header>
       <slot />
-      <footer class="mt-12 border-t border-[color:var(--color-line)] pt-4 text-[0.95rem] text-mute">
+      <footer class="mt-16 max-w-[62rem] border-t border-[color:var(--color-line)] pt-5 text-[0.95rem] text-mute sm:mt-24">
         Recipes here come from all over the place. I do not claim ownership of them, and I make a best effort to attribute sources when I have them.
       </footer>
     </div>
