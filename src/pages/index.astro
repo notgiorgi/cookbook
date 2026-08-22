@@ -7,164 +7,143 @@ const withBase = (path) => {
   return `${base}${path}`;
 };
 
-const formatCreatedDate = (value) =>
-  new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }).format(new Date(value));
+const normalizeText = (value = '') => value
+  .replace(/^---[\s\S]*?---/, '')
+  .replace(/[#*_`>[\]-]/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
 
 const recipes = (await getCollection('recipes'))
+  .filter((recipe) => recipe.data.status === 'published')
   .map((recipe) => {
-    const createdAt = recipe.data.created_at ? new Date(recipe.data.created_at).toISOString() : '';
+    const body = normalizeText(recipe.body ?? '');
 
     return {
-      ...recipe,
       slug: recipe.id,
-      createdAt,
-      createdLabel: createdAt ? formatCreatedDate(createdAt) : 'Recently added',
+      title: recipe.data.title,
+      tags: recipe.data.tags,
+      href: withBase(`recipes/${recipe.id}/`),
+      body,
+      summary: body.slice(0, 180),
     };
   })
-  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+  .sort((a, b) => a.title.localeCompare(b.title));
 
-const published = recipes.filter((recipe) => recipe.data.status === 'published');
 const draftsUrl = withBase('drafts/');
-const searchUrl = withBase('search/');
-const activeTag = Astro.url.searchParams.get('tag')?.trim().toLowerCase() ?? '';
 ---
 <BaseLayout title="Cookbook">
-  <section class="mb-10 border-b border-[color:var(--color-line)] pb-8 sm:mb-14 sm:pb-10">
-    <p class="m-0 text-[0.95rem] font-medium text-mute">{published.length} published recipes</p>
-    <h2 class="m-0 mt-3 max-w-[13ch] text-[2.15rem] sm:text-[3.4rem]">Cookbook</h2>
-    <form class="mt-6 grid gap-3" action={searchUrl} method="get">
-      <label class="sr-only" for="recipe-search-entry">Search recipes</label>
+  <section class="mx-auto max-w-[760px]">
+    <div class="sticky top-0 z-10 -mx-5 border-b border-[color:var(--color-line)] bg-canvas/95 px-5 py-4 backdrop-blur sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
+      <div class="mb-3 flex items-baseline justify-between gap-3">
+        <p class="m-0 text-[0.95rem] font-medium text-mute">{recipes.length} recipes</p>
+        <a class="text-[0.95rem] text-mute no-underline hover:text-ink hover:underline" href={draftsUrl}>Drafts</a>
+      </div>
+      <label class="sr-only" for="recipe-search-screen">Search recipes</label>
       <input
-        id="recipe-search-entry"
-        class="w-full rounded-[10px] border border-[color:var(--color-line-strong)] bg-panel px-4 py-4 font-inherit text-[1.08rem] text-ink outline-none ring-0 placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-black"
+        id="recipe-search-screen"
+        class="w-full rounded-[10px] border border-[color:var(--color-line-strong)] bg-panel px-4 py-4 font-inherit text-[1.15rem] text-ink outline-none placeholder:text-mute/80 focus:outline-2 focus:outline-offset-2 focus:outline-black"
         type="search"
-        name="q"
         placeholder="Search recipes, ingredients, tags…"
         autocomplete="off"
+        autofocus
       />
-      <div class="flex flex-wrap items-center gap-2.5">
-        <button class="inline-flex cursor-pointer items-center justify-center rounded-[10px] border border-transparent bg-accent px-4 py-3 font-inherit text-[0.98rem] font-medium text-white no-underline transition hover:bg-[rgb(0_0_0/0.78)] active:bg-[rgb(0_0_0/0.72)]" type="submit">
-          Search
-        </button>
-        <button id="random-recipe" class="inline-flex cursor-pointer items-center justify-center rounded-[10px] border border-[color:var(--color-line)] bg-panel px-4 py-3 font-inherit text-[0.98rem] font-medium text-ink no-underline transition hover:bg-panel-soft" type="button">
-          Random
-        </button>
-      </div>
-    </form>
-  </section>
-
-  <section class="mb-8" data-category-section="all">
-    <div class="mb-5 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
-      <div>
-        <h2 class="m-0 text-[1.45rem]">All recipes</h2>
-      </div>
-      {activeTag && <p class="m-0 text-[0.95rem] text-mute">Filtered by tag: <strong class="font-medium text-ink">{activeTag}</strong></p>}
+      <p id="search-count" class="m-0 mt-3 text-[0.92rem] text-mute"></p>
     </div>
 
-    <div class="grid border-t border-[color:var(--color-line)]">
-      {published.map((recipe) => (
-        <article
-          class="grid gap-2 border-b border-[color:var(--color-line)] py-4 transition hover:bg-panel-soft sm:-mx-3 sm:px-3"
-          data-searchable
-          data-tags={recipe.data.tags.join(' ').toLowerCase()}
-        >
-          <h3 class="m-0 text-[1.22rem] sm:text-[1.35rem]">
-            <a class="text-inherit no-underline hover:underline" href={withBase(`recipes/${recipe.slug}/`)}>{recipe.data.title}</a>
-          </h3>
-          {recipe.data.tags.length > 0 && (
-            <div class="mt-0 flex flex-wrap gap-1.5">
-              {recipe.data.tags.map((tag) => (
-                <button class="inline-flex cursor-pointer items-center whitespace-nowrap rounded-[999px] border border-[color:var(--color-line)] bg-transparent px-2.5 py-1 text-[0.72rem] leading-none text-mute no-underline transition hover:bg-panel-soft hover:text-ink data-[active=true]:border-black data-[active=true]:bg-black data-[active=true]:text-white" type="button" data-tag-filter={tag}>
-                  {tag}
-                </button>
-              ))}
-            </div>
-          )}
-        </article>
-      ))}
-    </div>
+    <div id="search-results" class="grid pt-3" aria-live="polite"></div>
   </section>
 
-  <p class="mt-8 text-[0.95rem] text-mute">
-    Looking for rougher notes? <a class="no-underline" href={draftsUrl}>Browse drafts</a>.
-  </p>
+  <script type="application/json" id="recipe-search-data" set:html={JSON.stringify(recipes)} />
 
   <script>
-    const input = document.querySelector('#recipe-search-entry');
-    const randomButton = document.querySelector('#random-recipe');
-    const cards = Array.from(document.querySelectorAll('[data-searchable]'));
-    const sections = Array.from(document.querySelectorAll('[data-category-section]'));
-    const tagButtons = Array.from(document.querySelectorAll('[data-tag-filter]'));
-    const publishedRecipeLinks = Array.from(document.querySelectorAll('article h3 a'));
+    import Fuse from 'fuse.js';
 
-    const getState = () => {
-      const params = new URLSearchParams(window.location.search);
-      return {
-        tag: (params.get('tag') || '').trim().toLowerCase(),
-      };
+    const input = document.querySelector('#recipe-search-screen');
+    const resultsRoot = document.querySelector('#search-results');
+    const count = document.querySelector('#search-count');
+    const dataNode = document.querySelector('#recipe-search-data');
+    const recipes = JSON.parse(dataNode?.textContent || '[]');
+
+    const fuse = new Fuse(recipes, {
+      includeMatches: true,
+      ignoreLocation: true,
+      threshold: 0.34,
+      keys: [
+        { name: 'title', weight: 0.45 },
+        { name: 'tags', weight: 0.3 },
+        { name: 'body', weight: 0.25 },
+      ],
+    });
+
+    const escapeHtml = (value) => String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+
+    const getSnippet = (recipe, matches) => {
+      const bodyMatch = matches?.find((match) => match.key === 'body' && match.indices?.length);
+      if (!bodyMatch) return recipe.summary || 'Open recipe';
+
+      const [start, end] = bodyMatch.indices[0];
+      const from = Math.max(0, start - 48);
+      const to = Math.min(recipe.body.length, end + 72);
+      const prefix = from > 0 ? '…' : '';
+      const suffix = to < recipe.body.length ? '…' : '';
+      return `${prefix}${recipe.body.slice(from, to)}${suffix}`;
     };
 
-    const setParams = ({ tag }) => {
+    const render = () => {
+      const query = (input?.value || '').trim();
       const params = new URLSearchParams(window.location.search);
 
-      if (tag) params.set('tag', tag);
-      else params.delete('tag');
+      if (query) params.set('q', query);
+      else params.delete('q');
 
-      const search = params.toString();
-      const nextUrl = `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`;
-      window.history.replaceState({}, '', nextUrl);
-    };
+      const nextSearch = params.toString();
+      window.history.replaceState({}, '', `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ''}`);
 
-    const applyFilters = () => {
-      const { tag } = getState();
+      const matches = query
+        ? fuse.search(query).map((result) => ({ recipe: result.item, matches: result.matches }))
+        : recipes.map((recipe) => ({ recipe, matches: [] }));
 
-      cards.forEach((card) => {
-        const tags = card.dataset.tags || '';
-        const matchesTag = !tag || tags.split(/\s+/).includes(tag);
-        card.style.display = matchesTag ? '' : 'none';
-      });
+      if (count) {
+        count.textContent = query
+          ? `${matches.length} ${matches.length === 1 ? 'result' : 'results'} for “${query}”`
+          : `${recipes.length} recipes`;
+      }
 
-      sections.forEach((section) => {
-        const visibleCards = section.querySelectorAll('article:not([style*="display: none"])');
-        section.style.display = visibleCards.length ? '' : 'none';
-      });
+      if (!resultsRoot) return;
 
-      tagButtons.forEach((button) => {
-        const isActive = (button.dataset.tagFilter || '').toLowerCase() === tag;
-        button.dataset.active = isActive ? 'true' : 'false';
-        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
+      if (!matches.length) {
+        resultsRoot.innerHTML = '<p class="py-10 text-mute">No recipes found. Try an ingredient, dish, or tag.</p>';
+        return;
+      }
+
+      resultsRoot.innerHTML = matches.map(({ recipe, matches }) => `
+        <a class="group grid gap-2 border-b border-[color:var(--color-line)] py-4 text-inherit no-underline transition hover:bg-panel-soft sm:-mx-3 sm:px-3" href="${escapeHtml(recipe.href)}">
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="m-0 text-[1.25rem] font-semibold tracking-[-0.025em] group-hover:underline">${escapeHtml(recipe.title)}</h2>
+            <span class="shrink-0 text-[1.1rem] text-mute" aria-hidden="true">→</span>
+          </div>
+          ${recipe.tags?.length ? `<p class="m-0 text-[0.82rem] text-mute">${recipe.tags.map(escapeHtml).join(' · ')}</p>` : ''}
+          <p class="m-0 line-clamp-2 text-[0.95rem] leading-[1.45] text-mute">${escapeHtml(getSnippet(recipe, matches))}</p>
+        </a>
+      `).join('');
     };
 
     if (input) {
-      input.addEventListener('focus', () => {
-        window.location.href = '/cookbook/search/';
-      });
+      const initial = new URLSearchParams(window.location.search).get('q') || '';
+      input.value = initial;
+      input.addEventListener('input', render);
+      window.requestAnimationFrame(() => input.focus());
     }
 
-    tagButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const selectedTag = (button.dataset.tagFilter || '').trim().toLowerCase();
-        const currentTag = getState().tag;
-        setParams({ tag: currentTag === selectedTag ? '' : selectedTag });
-        applyFilters();
-      });
+    window.addEventListener('popstate', () => {
+      if (input) input.value = new URLSearchParams(window.location.search).get('q') || '';
+      render();
     });
 
-    window.addEventListener('popstate', applyFilters);
-    applyFilters();
-
-    if (randomButton && publishedRecipeLinks.length) {
-      randomButton.addEventListener('click', () => {
-        const visibleRecipeLinks = publishedRecipeLinks.filter((link) => link.closest('article')?.style.display !== 'none');
-        const pool = visibleRecipeLinks.length ? visibleRecipeLinks : publishedRecipeLinks;
-        const pick = pool[Math.floor(Math.random() * pool.length)];
-        if (pick?.href) window.location.href = pick.href;
-      });
-    }
+    render();
   </script>
 </BaseLayout>
