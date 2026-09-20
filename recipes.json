@@ -346,6 +346,21 @@
     "path": "src/content/recipes/no-knead-bread.md"
   },
   {
+    "title": "No-Yeast Naan",
+    "slug": "no-yeast-naan",
+    "status": "published",
+    "tags": [
+      "bread",
+      "naan",
+      "indian-inspired",
+      "no-yeast",
+      "skillet"
+    ],
+    "source_file": "Adam Ragusea video description via chat screenshot",
+    "source_url": "",
+    "path": "src/content/recipes/no-yeast-naan.md"
+  },
+  {
     "title": "Peanut Soy Noodles",
     "slug": "peanut-soy-noodles",
     "status": "published",
