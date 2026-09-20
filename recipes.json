@@ -94,6 +94,21 @@
     "path": "src/content/recipes/beef-cutlets.md"
   },
   {
+    "title": "Beef-Shank Pho",
+    "slug": "beef-shank-pho",
+    "status": "published",
+    "tags": [
+      "soup",
+      "beef",
+      "vietnamese",
+      "pho",
+      "noodles"
+    ],
+    "source_file": "chat note",
+    "source_url": "",
+    "path": "src/content/recipes/beef-shank-pho.md"
+  },
+  {
     "title": "Blueberry Cream Cheese Baked Oats",
     "slug": "blueberry-cream-cheese-baked-oats",
     "status": "published",
