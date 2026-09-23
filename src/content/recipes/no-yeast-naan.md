@@ -8,6 +8,11 @@ tags:
   - indian-inspired
   - no-yeast
   - skillet
+images:
+  - src: "/images/recipes/no-yeast-naan-1.jpg"
+    alt: "No-yeast naan cooked until blistered and browned."
+  - src: "/images/recipes/no-yeast-naan-2.jpg"
+    alt: "Fresh homemade no-yeast naan brushed with butter."
 source_file: "Adam Ragusea video description via chat screenshot"
 ---
 A no-yeast Adam Ragusea-style naan dough made with yogurt, baking powder, and baking soda. This amount makes 2 large naan like the video.

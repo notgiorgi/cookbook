@@ -8,6 +8,11 @@ tags:
   - vietnamese
   - pho
   - noodles
+images:
+  - src: "/images/recipes/beef-shank-pho-1.jpg"
+    alt: "A bowl of beef-shank pho with noodles, herbs, and sliced onion."
+  - src: "/images/recipes/beef-shank-pho-2.jpg"
+    alt: "Homemade beef-shank pho served with fresh herbs and garnishes."
 source_file: "chat note"
 ---
 A 5-hour beef-shank pho for about 5 to 6 bowls, built from blanched shanks, charred onion and ginger, toasted warm spices, and a final seasoning pass with fish sauce, MSG, and sugar.
