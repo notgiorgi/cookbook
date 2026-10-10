@@ -321,6 +321,19 @@
     "path": "src/content/recipes/lo-mein-noodles.md"
   },
   {
+    "title": "Meal Prep Beef and Rice Burritos",
+    "slug": "meal-prep-beef-and-rice-burritos",
+    "status": "published",
+    "tags": [
+      "main",
+      "beef",
+      "burrito",
+      "meal-prep"
+    ],
+    "source_url": "https://youtu.be/9AA64-5KzDY",
+    "path": "src/content/recipes/meal-prep-beef-and-rice-burritos.md"
+  },
+  {
     "title": "Meatballs",
     "slug": "meatballs",
     "status": "draft",
