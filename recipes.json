@@ -387,6 +387,20 @@
     "path": "src/content/recipes/peanut-soy-noodles.md"
   },
   {
+    "title": "Pesto Risotto",
+    "slug": "pesto-risotto",
+    "status": "published",
+    "tags": [
+      "main",
+      "rice",
+      "italian",
+      "risotto",
+      "pesto"
+    ],
+    "source_url": "https://youtu.be/j2r3M7RdNwE",
+    "path": "src/content/recipes/pesto-risotto.md"
+  },
+  {
     "title": "Pico de Gallo",
     "slug": "pico-de-gallo",
     "status": "draft",
