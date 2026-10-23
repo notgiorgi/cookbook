@@ -12,16 +12,16 @@ source_url: "https://youtu.be/j2r3M7RdNwE"
 ---
 A simple green, risotto verde-style risotto made with Arborio rice, Pinot Grigio, hot broth, cold butter, aged hard cheese, and green pesto. Think of it less as a rice dish like pilaf and more as a sauce: an emulsion of rice starch, broth, butter, and cheese.
 
-Serves 2, based on 150 g of rice. The video measures the rice from the serving guide on the package and gives the liquids as a ratio to the rice (1/2 cup wine and 3 1/2 cups broth per 1 cup rice); the amounts below scale that ratio, taking 150 g of Arborio as roughly 3/4 cup.
+Serves 2, based on 150 g of rice. The video measures the rice from the serving guide on the package and gives the liquids as a ratio to the rice: per 1 cup (about 200 g) of rice, 1/2 cup (120 ml) of wine for a strong flavor or 1/3 cup (80 ml) for a light one, and 3 1/2 cups (840 ml) of broth. The amounts below scale that ratio, taking 150 g of Arborio as roughly 3/4 cup. For liquids, 1 ml weighs about 1 g.
 
 ## Ingredients
 
-- [ ] 150 g Arborio rice (Carnaroli also works)
+- [ ] Arborio rice, 150 g (about 3/4 cup) (Carnaroli also works)
 - [ ] Olive oil or pesto-flavored olive oil, for toasting the rice (don't skimp)
-- [ ] Dry white wine, such as Pinot Grigio DOC from Friuli: about 90 ml (3/8 cup) for a strong wine flavor, or about 60 ml (1/4 cup) for a light one
-- [ ] Broth, about 650 ml (2 2/3 cups), kept hot, plus a little extra in case (the chef uses leftover beef broth; chicken or any other broth works)
-- [ ] Green pesto, about 1/2 tablespoon during cooking plus 1 small spoonful at the end, plus extra for serving
-- [ ] Cold, firm butter, about 2 tablespoons
+- [ ] Dry white wine, such as Pinot Grigio DOC from Friuli: about 90 ml / 90 g (3/8 cup) for a strong wine flavor, or about 60 ml / 60 g (1/4 cup) for a light one
+- [ ] Broth, about 630 ml / 630 g (2 2/3 cups), kept hot, plus a little extra in case (the chef uses leftover beef broth; chicken or any other broth works)
+- [ ] Green pesto, about 1/2 tablespoon (about 8 g) during cooking plus 1 small spoonful at the end, plus extra for serving
+- [ ] Cold, firm butter, about 2 tablespoons (about 28 g, 1/8 cup)
 - [ ] Aged hard cheese, such as Parmesan or Grana, grated, plus shavings for serving
 - [ ] Salt, only if the broth is unsalted
 
