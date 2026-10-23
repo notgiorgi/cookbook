@@ -16,12 +16,12 @@ Serves 2, based on 150 g of rice. The video measures the rice from the serving g
 
 ## Ingredients
 
-- [ ] Arborio rice, 150 g (about 3/4 cup) (Carnaroli also works)
+- [ ] 150 g Arborio rice, about 3/4 cup (Carnaroli also works)
 - [ ] Olive oil or pesto-flavored olive oil, for toasting the rice (don't skimp)
-- [ ] Dry white wine, such as Pinot Grigio DOC from Friuli: about 90 ml / 90 g (3/8 cup) for a strong wine flavor, or about 60 ml / 60 g (1/4 cup) for a light one
-- [ ] Broth, about 630 ml / 630 g (2 2/3 cups), kept hot, plus a little extra in case (the chef uses leftover beef broth; chicken or any other broth works)
-- [ ] Green pesto, about 1/2 tablespoon (about 8 g) during cooking plus 1 small spoonful at the end, plus extra for serving
-- [ ] Cold, firm butter, about 2 tablespoons (about 28 g, 1/8 cup)
+- [ ] 90 g dry white wine, about 3/8 cup, for a strong wine flavor, or 60 g, about 1/4 cup, for a light one (such as Pinot Grigio DOC from Friuli)
+- [ ] 630 g broth, about 2 2/3 cups, kept hot, plus a little extra in case (the chef uses leftover beef broth; chicken or any other broth works)
+- [ ] 8 g green pesto, about 1/2 tablespoon, for cooking, plus 1 small spoonful at the end and extra for serving
+- [ ] 28 g cold, firm butter, about 2 tablespoons
 - [ ] Aged hard cheese, such as Parmesan or Grana, grated, plus shavings for serving
 - [ ] Salt, only if the broth is unsalted
 
